@@ -26,18 +26,36 @@
                         <span class="logo-subtitle">Tests & Prüfungen</span>
                     </div>
                 </div>
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="de" title="Deutsch">
+                        🇩🇪
+                    </button>
+                    <button class="lang-btn" data-lang="en" title="English">
+                        🇬🇧
+                    </button>
+                    <button class="lang-btn" data-lang="ka" title="ქართული">
+                        🇬🇪
+                    </button>
+                </div>
+                
+                <!-- Dark Mode Toggle -->
+                <button class="theme-toggle" id="themeToggle" title="Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                
                 <nav class="nav">
                     <a href="index.html" class="nav-link">
                         <i class="fa-solid fa-home"></i>
-                        <span>Startseite</span>
+                        <span data-translate="nav-home">Startseite</span>
                     </a>
                     <a href="#tests" class="nav-link">
                         <i class="fa-solid fa-clipboard-check"></i>
-                        <span>Tests</span>
+                        <span data-translate="nav-tests">Tests</span>
                     </a>
                     <a href="#exam" class="nav-link">
                         <i class="fa-solid fa-file-pen"></i>
-                        <span>C1 Prüfung</span>
+                        <span data-translate="nav-exam">C1 Prüfung</span>
                     </a>
                 </nav>
             </div>
@@ -50,31 +68,31 @@
             <div class="tests-hero-content">
                 <div class="hero-badge">
                     <i class="fa-solid fa-certificate"></i>
-                    <span>Prüfungsvorbereitung</span>
+                    <span data-translate="test-hero-badge">Prüfungsvorbereitung</span>
                 </div>
-                <h1>Tests & Prüfungssimulation</h1>
-                <p>Bereite dich optimal auf die C1-Prüfung vor mit realistischen Tests und detailliertem Feedback</p>
+                <h1 data-translate="test-hero-title">Tests & Prüfungssimulation</h1>
+                <p data-translate="test-hero-desc">Bereite dich optimal auf die C1-Prüfung vor mit realistischen Tests und detailliertem Feedback</p>
                 
                 <div class="test-categories">
                     <div class="test-category-card">
                         <i class="fa-solid fa-book-open"></i>
-                        <h3>Leseverstehen</h3>
-                        <p>8 Tests</p>
+                        <h3 data-translate="test-cat-reading">Leseverstehen</h3>
+                        <p data-translate="test-cat-reading-num">8 Tests</p>
                     </div>
                     <div class="test-category-card">
                         <i class="fa-solid fa-headphones"></i>
-                        <h3>Hörverstehen</h3>
-                        <p>6 Tests</p>
+                        <h3 data-translate="test-cat-listening">Hörverstehen</h3>
+                        <p data-translate="test-cat-listening-num">6 Tests</p>
                     </div>
                     <div class="test-category-card">
                         <i class="fa-solid fa-pen"></i>
-                        <h3>Schreiben</h3>
-                        <p>4 Tests</p>
+                        <h3 data-translate="test-cat-writing">Schreiben</h3>
+                        <p data-translate="test-cat-writing-num">4 Tests</p>
                     </div>
                     <div class="test-category-card">
                         <i class="fa-solid fa-comments"></i>
-                        <h3>Sprechen</h3>
-                        <p>5 Tests</p>
+                        <h3 data-translate="test-cat-speaking">Sprechen</h3>
+                        <p data-translate="test-cat-speaking-num">5 Tests</p>
                     </div>
                 </div>
             </div>
@@ -85,9 +103,9 @@
     <section id="tests" class="section">
         <div class="container">
             <div class="section-intro">
-                <span class="section-label"><i class="fa-solid fa-clipboard-check"></i> Schnelle Tests</span>
-                <h2 class="section-title">Teste dein Wissen</h2>
-                <p class="section-description">Kurze Tests für zwischendurch - Dauer: 5-10 Minuten</p>
+                <span class="section-label"><i class="fa-solid fa-clipboard-check"></i> <span data-translate="test-quick-label">Schnelle Tests</span></span>
+                <h2 class="section-title" data-translate="test-quick-title">Teste dein Wissen</h2>
+                <p class="section-description" data-translate="test-quick-desc">Kurze Tests für zwischendurch - Dauer: 5-10 Minuten</p>
             </div>
 
             <div class="tests-grid">
@@ -98,28 +116,28 @@
                             <i class="fa-solid fa-a"></i>
                         </div>
                         <div class="test-info">
-                            <h3>Artikel-Test</h3>
+                            <h3 data-translate="test-artikel-title">Artikel-Test</h3>
                             <div class="test-meta">
-                                <span><i class="fa-regular fa-clock"></i> 5 Min</span>
-                                <span><i class="fa-solid fa-list"></i> 20 Fragen</span>
+                                <span><i class="fa-regular fa-clock"></i> <span data-translate="test-5min">5 Min</span></span>
+                                <span><i class="fa-solid fa-list"></i> <span data-translate="test-20q">20 Fragen</span></span>
                                 <span class="test-level level-a1">A1-A2</span>
                             </div>
                         </div>
                     </div>
-                    <p class="test-description">Teste dein Wissen über der, die, das</p>
+                    <p class="test-description" data-translate="test-artikel-desc">Teste dein Wissen über der, die, das</p>
                     <div class="test-stats">
                         <div class="test-stat">
                             <strong id="artikelTestBest">0%</strong>
-                            <span>Bestes Ergebnis</span>
+                            <span data-translate="test-best">Bestes Ergebnis</span>
                         </div>
                         <div class="test-stat">
                             <strong id="artikelTestCount">0</strong>
-                            <span>Versuche</span>
+                            <span data-translate="test-attempts">Versuche</span>
                         </div>
                     </div>
                     <button class="btn btn-primary btn-full" onclick="startTest('artikel')">
                         <i class="fa-solid fa-play"></i>
-                        Test starten
+                        <span data-translate="test-start">Test starten</span>
                     </button>
                 </div>
 

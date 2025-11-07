@@ -5,6 +5,177 @@
 // ============================================
 
 // ============================================
+// TRANSLATIONS FOR TEST PAGE
+// ============================================
+const testTranslations = {
+    de: {
+        // Navigation
+        'nav-home': 'Startseite',
+        'nav-tests': 'Tests',
+        'nav-exam': 'C1 Prüfung',
+        
+        // Hero
+        'test-hero-badge': 'Prüfungsvorbereitung',
+        'test-hero-title': 'Tests & Prüfungssimulation',
+        'test-hero-desc': 'Bereite dich optimal auf die C1-Prüfung vor mit realistischen Tests und detailliertem Feedback',
+        
+        // Categories
+        'test-cat-reading': 'Leseverstehen',
+        'test-cat-listening': 'Hörverstehen',
+        'test-cat-writing': 'Schreiben',
+        'test-cat-speaking': 'Sprechen',
+        'test-cat-reading-num': '8 Tests',
+        'test-cat-listening-num': '6 Tests',
+        'test-cat-writing-num': '4 Tests',
+        'test-cat-speaking-num': '5 Tests',
+        
+        // Quick Tests
+        'test-quick-label': 'Schnelle Tests',
+        'test-quick-title': 'Teste dein Wissen',
+        'test-quick-desc': 'Kurze Tests für zwischendurch - Dauer: 5-10 Minuten',
+        
+        // Test Cards
+        'test-artikel-title': 'Artikel-Test',
+        'test-artikel-desc': 'Teste dein Wissen über der, die, das',
+        'test-5min': '5 Min',
+        'test-20q': '20 Fragen',
+        'test-best': 'Bestes Ergebnis',
+        'test-attempts': 'Versuche',
+        'test-start': 'Test starten'
+    },
+    en: {
+        // Navigation
+        'nav-home': 'Home',
+        'nav-tests': 'Tests',
+        'nav-exam': 'C1 Exam',
+        
+        // Hero
+        'test-hero-badge': 'Exam Preparation',
+        'test-hero-title': 'Tests & Exam Simulation',
+        'test-hero-desc': 'Prepare optimally for the C1 exam with realistic tests and detailed feedback',
+        
+        // Categories
+        'test-cat-reading': 'Reading',
+        'test-cat-listening': 'Listening',
+        'test-cat-writing': 'Writing',
+        'test-cat-speaking': 'Speaking',
+        'test-cat-reading-num': '8 Tests',
+        'test-cat-listening-num': '6 Tests',
+        'test-cat-writing-num': '4 Tests',
+        'test-cat-speaking-num': '5 Tests',
+        
+        // Quick Tests
+        'test-quick-label': 'Quick Tests',
+        'test-quick-title': 'Test Your Knowledge',
+        'test-quick-desc': 'Short tests for in-between - Duration: 5-10 minutes',
+        
+        // Test Cards
+        'test-artikel-title': 'Article Test',
+        'test-artikel-desc': 'Test your knowledge of der, die, das',
+        'test-5min': '5 Min',
+        'test-20q': '20 Questions',
+        'test-best': 'Best Score',
+        'test-attempts': 'Attempts',
+        'test-start': 'Start Test'
+    },
+    ka: {
+        // Navigation
+        'nav-home': 'მთავარი',
+        'nav-tests': 'ტესტები',
+        'nav-exam': 'C1 გამოცდა',
+        
+        // Hero
+        'test-hero-badge': 'გამოცდის მომზადება',
+        'test-hero-title': 'ტესტები და გამოცდის სიმულაცია',
+        'test-hero-desc': 'მოემზადეთ ოპტიმალურად C1 გამოცდისთვის რეალისტური ტესტებითა და დეტალური უკუკავშირით',
+        
+        // Categories
+        'test-cat-reading': 'კითხვა',
+        'test-cat-listening': 'მოსმენა',
+        'test-cat-writing': 'წერა',
+        'test-cat-speaking': 'საუბარი',
+        'test-cat-reading-num': '8 ტესტი',
+        'test-cat-listening-num': '6 ტესტი',
+        'test-cat-writing-num': '4 ტესტი',
+        'test-cat-speaking-num': '5 ტესტი',
+        
+        // Quick Tests
+        'test-quick-label': 'სწრაფი ტესტები',
+        'test-quick-title': 'შეამოწმე შენი ცოდნა',
+        'test-quick-desc': 'მოკლე ტესტები შუალედში - ხანგრძლივობა: 5-10 წუთი',
+        
+        // Test Cards
+        'test-artikel-title': 'არტიკლის ტესტი',
+        'test-artikel-desc': 'შეამოწმე შენი ცოდნა der, die, das-ზე',
+        'test-5min': '5 წუთი',
+        'test-20q': '20 კითხვა',
+        'test-best': 'საუკეთესო შედეგი',
+        'test-attempts': 'მცდელობები',
+        'test-start': 'ტესტის დაწყება'
+    }
+};
+
+// Apply translations function for test page
+function applyTestTranslations(lang) {
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (testTranslations[lang] && testTranslations[lang][key]) {
+            el.textContent = testTranslations[lang][key];
+        }
+    });
+    
+    // Update active language button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Save language
+    localStorage.setItem('deutschLernenLanguage', lang);
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', function() {
+    const savedLang = localStorage.getItem('deutschLernenLanguage') || 'de';
+    applyTestTranslations(savedLang);
+    
+    // Language switcher events
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => applyTestTranslations(btn.dataset.lang));
+    });
+    
+    // Dark mode
+    const isDarkMode = localStorage.getItem('deutschLernenDarkMode') === 'true';
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        const icon = document.querySelector('#themeToggle i');
+        if (icon) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+    }
+    
+    // Dark mode toggle
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('deutschLernenDarkMode', isDark);
+            const icon = this.querySelector('i');
+            if (isDark) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+    }
+});
+
+// ============================================
 // TEST DATA
 // ============================================
 

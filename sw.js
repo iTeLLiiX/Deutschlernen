@@ -1,14 +1,19 @@
 // Service Worker für Deutsch Meistern
 // Ermöglicht Offline-Funktionalität und App-Installation
 
-const CACHE_NAME = 'deutsch-meistern-v1';
+const CACHE_NAME = 'deutsch-meistern-v2';
 const urlsToCache = [
   './',
   './index.html',
   './style.css',
   './script.js',
+  './tests.html',
+  './test-styles.css',
+  './test-engine.js',
+  './manifest.json',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap'
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap',
+  'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js'
 ];
 
 // Installation
