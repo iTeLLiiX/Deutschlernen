@@ -3,6 +3,275 @@
 // Immersive Learning Experience
 // ============================================
 
+// Translations for Classroom
+const classroomTranslations = {
+    de: {
+        // Already in German (default)
+    },
+    en: {
+        // Welcome
+        'welcome-classroom': 'Welcome to the Classroom, Mariami!',
+        'today-is': 'Today is',
+        'ready-to-learn': '- Ready to learn?',
+        'daily-motivation': 'The best time to start was yesterday. The second best is now!',
+        
+        // Today's Plan
+        'todays-plan': 'Today\'s Schedule',
+        'your-lessons': 'Your lessons for today',
+        'follow-plan': 'Follow the daily plan for optimal learning success',
+        
+        // Games
+        'learning-games': 'Learning Games',
+        'learn-playing': 'Learn German while having fun!',
+        'word-match': 'Word Match',
+        'speed-typer': 'Speed Typer',
+        'vocab-memory': 'Vocab Memory',
+        'sentence-builder': 'Sentence Builder',
+        'listening-challenge': 'Listening Challenge',
+        'article-rush': 'Article Rush',
+        'play': 'Play',
+        'highscore': 'Highscore',
+        
+        // Scenarios
+        'conversation-simulator': 'Conversation Simulator',
+        'practice-real-situations': 'Practice real situations',
+        'interactive-dialogues': 'Interactive dialogues like in real life',
+        'start-scenario': 'Start Scenario',
+        
+        // Story
+        'story-mode': 'Story Mode',
+        'learn-through-stories': 'Learn through stories',
+        'mariamis-journey': 'Follow Mariami\'s journey in Germany',
+        
+        // Daily Challenge
+        'daily-challenge': 'Daily Challenge',
+        'new-challenge': 'New challenge every day! Collect bonus points!',
+        'todays-challenge': 'Today\'s Challenge',
+        'accept-challenge': 'Accept Challenge!',
+        'your-streak': 'Your Challenge Streak',
+        'days': 'days',
+        
+        // Teacher
+        'your-teacher': 'Your Teacher: Nico',
+        'always-here': 'Always here for you!',
+        'message-from-nico': 'Message from Nico:',
+        'nicos-tips': 'Nico\'s Learning Tips',
+        
+        // Study Group
+        'study-group': 'Study Group',
+        'virtual-study-group': 'Virtual Study Group',
+        'learn-with-others': 'Learn "with" others (Simulated for motivation)',
+        'this-week': 'This Week',
+        'points-to-rank': 'points to rank',
+        'you-can-do-it': 'You can do it!',
+        
+        // Immersion
+        'immersion-zone': 'Immersion Zone',
+        'dive-into-german': 'Dive into the German world',
+        'experience-germany': 'Experience Germany virtually',
+        
+        // Notebook
+        'learning-diary': 'Your Learning Diary',
+        'notes-reflections': 'Notes & Reflections',
+        'document-journey': 'Document your learning journey',
+        'daily-notes': 'Daily Notes',
+        'vocab-collection': 'Vocabulary Collection',
+        'questions-to-nico': 'Questions for Nico',
+        'progress-journal': 'Progress Journal',
+        'save': 'Save'
+    },
+    ka: {
+        // Georgian translations
+        'welcome-classroom': 'კეთილი იყოს შენი მობრძანება კლასში, მარიამ!',
+        'today-is': 'დღეს არის',
+        'ready-to-learn': '- მზად ხარ სწავლისთვის?',
+        'daily-motivation': 'საუკეთესო დრო დასაწყებად იყო გუშინ. მეორე საუკეთესო არის ახლა!',
+        'todays-plan': 'დღევანდელი განრიგი',
+        'your-lessons': 'შენი გაკვეთილები დღეს',
+        'follow-plan': 'მიჰყევი დღის გეგმას ოპტიმალური შედეგებისთვის',
+        'learning-games': 'სასწავლო თამაშები',
+        'learn-playing': 'ისწავლე გერმანული გართობით!',
+        'word-match': 'სიტყვების დაჯგუფება',
+        'speed-typer': 'სწრაფი აკრეფა',
+        'vocab-memory': 'მეხსიერების თამაში',
+        'sentence-builder': 'წინადადების აწყობა',
+        'listening-challenge': 'მოსმენის გამოწვევა',
+        'article-rush': 'არტიკლების რუში',
+        'play': 'თამაში',
+        'highscore': 'საუკეთესო ქულა'
+    },
+    ar: {
+        // Arabic translations
+        'welcome-classroom': 'مرحباً بك في الفصل، ماريامي!',
+        'today-is': 'اليوم هو',
+        'ready-to-learn': '- مستعد للتعلم؟',
+        'daily-motivation': 'أفضل وقت للبدء كان بالأمس. ثاني أفضل وقت هو الآن!',
+        
+        // Today's Plan
+        'todays-plan': 'جدول اليوم',
+        'your-lessons': 'دروسك لهذا اليوم',
+        'follow-plan': 'اتبع الخطة اليومية لتحقيق النجاح الأمثل',
+        
+        // Games
+        'learning-games': 'ألعاب تعليمية',
+        'learn-playing': 'تعلم الألمانية مع المتعة!',
+        'word-match': 'مطابقة الكلمات',
+        'word-match-desc': 'اربط الكلمات الألمانية بالترجمات',
+        'speed-typer': 'الطابع السريع',
+        'speed-typer-desc': 'اكتب الكلمات الألمانية بأسرع ما يمكن',
+        'vocab-memory': 'ذاكرة المفردات',
+        'vocab-memory-desc': 'ابحث عن الأزواج المتطابقة (ألماني-إنجليزي)',
+        'sentence-builder': 'بناء الجمل',
+        'sentence-builder-desc': 'اصنع جملاً ألمانية صحيحة من الكلمات',
+        'listening-challenge': 'تحدي الاستماع',
+        'listening-challenge-desc': 'استمع للكلمات واكتبها بشكل صحيح',
+        'article-rush': 'سباق الأدوات',
+        'article-rush-desc': 'اختر الأدوات بأسرع ما يمكن! ضد الزمن!',
+        'play': 'العب',
+        'highscore': 'أعلى نتيجة',
+        'best-time': 'أفضل وقت',
+        'level': 'المستوى',
+        'streak': 'السلسلة',
+        'record': 'الرقم القياسي',
+        'easy': 'سهل',
+        'medium': 'متوسط',
+        'hard': 'صعب',
+        
+        // Scenarios
+        'conversation-simulator': 'محاكي المحادثة',
+        'practice-real-situations': 'تدرب على مواقف حقيقية',
+        'interactive-dialogues': 'حوارات تفاعلية كما في الحياة الواقعية',
+        'in-restaurant': 'في المطعم',
+        'in-restaurant-desc': 'اطلب الطعام، تحدث مع النادل، ادفع الفاتورة',
+        'at-doctor': 'عند الطبيب',
+        'at-doctor-desc': 'اشرح أعراضك، افهم الطبيب، احصل على وصفات',
+        'job-interview': 'مقابلة عمل',
+        'job-interview-desc': 'قدم نفسك، أجب على الأسئلة، أقنع المدير',
+        'apartment-viewing': 'معاينة شقة',
+        'apartment-viewing-desc': 'اسأل عن التفاصيل، تفاوض، وقع العقد',
+        'bank-authorities': 'البنك والسلطات',
+        'bank-authorities-desc': 'افتح حساباً، املأ النماذج، تواصل رسمياً',
+        'small-talk': 'محادثة قصيرة وتواصل',
+        'small-talk-desc': 'دردش، اصنع أصدقاء، اربط علاقات اجتماعية',
+        'start-scenario': 'بدء السيناريو',
+        
+        // Story Mode
+        'story-mode': 'وضع القصة',
+        'learn-through-stories': 'تعلم من خلال القصص',
+        'mariamis-journey': 'تابع رحلة ماريامي في ألمانيا',
+        'chapter': 'الفصل',
+        'arrival-germany': 'الوصول إلى ألمانيا',
+        'arrival-desc': 'ماريامي تصل إلى المطار. عليها إيجاد الطريق...',
+        'first-apartment': 'الشقة الأولى',
+        'first-apartment-desc': 'ماريامي تبحث عن شقة. تقابل صاحب العقار...',
+        'first-work-day': 'أول يوم عمل',
+        'first-work-day-desc': 'ماريامي تبدأ وظيفتها الجديدة. زملاء جدد...',
+        'making-friends': 'تكوين صداقات',
+        'making-friends-desc': 'ماريامي تذهب إلى لقاء لغة...',
+        'c1-exam': 'امتحان C1',
+        'c1-exam-desc': 'اليوم الكبير! ماريامي تخوض الامتحان...',
+        'vocab-words': 'مفردات',
+        
+        // Daily Challenge
+        'daily-challenge': 'التحدي اليومي',
+        'new-challenge': 'تحدي جديد كل يوم! اجمع نقاط إضافية!',
+        'todays-challenge': 'تحدي اليوم',
+        'perfect-pronunciation': 'النطق المثالي',
+        'challenge-desc': 'سجل 10 كلمات واحصل على دقة 90%+',
+        'reward': 'المكافأة',
+        'bonus-points': 'نقاط إضافية',
+        'special-badge': 'شارة خاصة',
+        'accept-challenge': 'قبول التحدي!',
+        'your-streak': 'سلسلتك',
+        'days': 'أيام',
+        
+        // Teacher
+        'your-teacher': 'معلمك: نيكو',
+        'always-here': 'دائماً هنا من أجلك!',
+        'message-from-nico': 'رسالة من نيكو:',
+        'hello-mariami': 'مرحباً ماريامي!',
+        'nicos-tips': 'نصائح نيكو للتعلم',
+        'tip-context': 'نصيحة #1: تعلم مع السياق',
+        'tip-context-desc': 'لا تتعلم أبداً كلمات منفردة! دائماً في جمل أو مواقف. بهذه الطريقة تبقى في الذاكرة!',
+        'tip-speak': 'نصيحة #2: تحدث بصوت عالٍ!',
+        'tip-speak-desc': 'حتى لو كنت وحدك - انطق الكلمات بصوت عالٍ! استخدم تسجيل الصوت يومياً!',
+        'tip-mistakes': 'نصيحة #3: الأخطاء جيدة!',
+        'tip-mistakes-desc': 'كل خطأ هو فرصة للتعلم. لا تخف من ارتكاب الأخطاء!',
+        'tip-routine': 'نصيحة #4: روتين يومي',
+        'tip-routine-desc': '30 دقيقة كل يوم أفضل من 3 ساعات مرة في الأسبوع!',
+        'tip-fun': 'نصيحة #5: استمتع!',
+        'tip-fun-desc': 'العب الألعاب، استمع للموسيقى الألمانية، شاهد أفلاماً ألمانية. التعلم يجب أن يكون ممتعاً!',
+        
+        // Study Group
+        'study-group': 'مجموعة الدراسة',
+        'virtual-study-group': 'مجموعة دراسة افتراضية',
+        'learn-with-others': 'تعلم "مع" الآخرين (محاكاة للتحفيز)',
+        'you': 'أنت',
+        'level-display': 'المستوى',
+        'points': 'نقاط',
+        'learning-now': 'يتعلم الآن',
+        'taking-test': 'يخوض اختباراً',
+        'active-ago': 'نشط منذ',
+        'hours': 'ساعات',
+        'this-week': 'هذا الأسبوع',
+        'points-to-rank': 'نقطة إلى المركز',
+        'you-can-do-it': 'أنت تستطيع ذلك!',
+        
+        // Immersion Zone
+        'immersion-zone': 'منطقة الانغماس',
+        'dive-into-german': 'انغمس في العالم الألماني',
+        'experience-germany': 'اختبر ألمانيا افتراضياً',
+        'german-tv': 'البرامج التلفزيونية الألمانية',
+        'german-tv-desc': 'مقاطع قصيرة مع ترجمات وشرح للمفردات',
+        'german-podcasts': 'البودكاست الألماني',
+        'german-podcasts-desc': 'محتوى صوتي محسّن للمتعلمين',
+        'slow-news': 'أخبار بطيئة النطق',
+        'slow-news-desc': 'مواضيع حالية بألمانية بسيطة',
+        'german-songs': 'أغاني ألمانية',
+        'german-songs-desc': 'مع كلمات وترجمات',
+        'videos-available': 'فيديو متاح',
+        'episodes': 'حلقات',
+        'daily-new': 'جديد يومياً',
+        'songs': 'أغاني',
+        
+        // Notebook
+        'learning-diary': 'دفتر التعلم الخاص بك',
+        'notes-reflections': 'ملاحظات وتأملات',
+        'document-journey': 'وثق رحلة تعلمك',
+        'daily-notes': 'ملاحظات يومية',
+        'vocab-collection': 'مجموعة المفردات',
+        'questions-to-nico': 'أسئلة لنيكو',
+        'progress-journal': 'دفتر التقدم',
+        'daily-diary': 'دفتر التعلم اليومي',
+        'today': 'اليوم',
+        'what-learned': 'ماذا تعلمت اليوم؟ ما كان صعباً؟ ما كان ممتعاً؟',
+        'save': 'حفظ'
+    }
+};
+
+// Apply classroom translations
+function applyClassroomTranslations(lang) {
+    // RTL support for Arabic
+    if (lang === 'ar') {
+        document.body.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+        document.body.setAttribute('dir', 'ltr');
+        document.documentElement.setAttribute('dir', 'ltr');
+    }
+    
+    // Save language
+    localStorage.setItem('deutschLernenLanguage', lang);
+    
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+        }
+    });
+}
+
 // Set today's date
 document.addEventListener('DOMContentLoaded', function() {
     const today = new Date();
@@ -18,11 +287,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Language & theme (reuse from main)
     const savedLang = localStorage.getItem('deutschLernenLanguage') || 'de';
+    applyClassroomTranslations(savedLang);
+    
+    // Language switcher events
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.lang === savedLang) {
-            btn.classList.add('active');
-        }
+        btn.addEventListener('click', () => applyClassroomTranslations(btn.dataset.lang));
     });
     
     const isDarkMode = localStorage.getItem('deutschLernenDarkMode') === 'true';

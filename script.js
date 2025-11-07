@@ -294,6 +294,104 @@ const translations = {
         'c1-feat3': 'დროის მართვა',
         'c1-feat4': 'შეფასების კრიტერიუმები',
         'c1-open': 'C1 გამოცდის დაწყება'
+    },
+    ar: {
+        // Navigation
+        'nav-vocab': 'المفردات',
+        'nav-grammar': 'القواعد',
+        'nav-pronunciation': 'النطق',
+        'nav-exercises': 'التمارين',
+        'nav-tests': 'الاختبارات',
+        
+        // Hero
+        'hero-title': 'تعلم الألمانية - من A1 إلى C2',
+        'hero-subtitle': 'منصتك الشاملة لإتقان اللغة الألمانية',
+        'hero-desc': 'من المبتدئين إلى المتحدثين الأصليين - كل شيء في مكان واحد',
+        
+        // Welcome
+        'welcome-title': 'مرحباً في منصة تعلم الألمانية!',
+        'welcome-text': 'هنا ستجد كل ما تحتاجه لتعلم الألمانية بشكل مثالي. من مستوى A1 إلى C2، مع اختبارات تفاعلية وتمارين ممتعة.',
+        
+        // Vocabulary
+        'vocab-title': 'المفردات الألمانية',
+        'vocab-intro': 'تعلم المفردات الألمانية الأساسية مع الأمثلة',
+        'vocab-search': 'البحث في المفردات...',
+        'vocab-all': 'الكل',
+        'vocab-favorites': 'المفضلة',
+        
+        // Lesson A1.1
+        'lesson-a1-1': 'التحيات المهمة',
+        'lesson-a1-1-goal': 'تعلم التحيات الألمانية الأساسية',
+        'lesson-german': 'الألمانية',
+        'lesson-article': 'الأداة/الشكل',
+        'lesson-english': 'الإنجليزية',
+        'lesson-type': 'النوع',
+        
+        // Grammar
+        'grammar-title': 'القواعد الألمانية',
+        'grammar-articles': 'أدوات التعريف: der, die, das',
+        'grammar-masc': 'المذكر',
+        'grammar-fem': 'المؤنث',
+        'grammar-neut': 'المحايد',
+        'grammar-plural': 'الجمع',
+        
+        // Pronunciation
+        'pronunciation-title': 'دليل النطق',
+        'pronunciation-sounds': 'الأصوات الألمانية المهمة',
+        
+        // Flashcards
+        'flashcards-title': 'البطاقات التعليمية',
+        'flashcards-desc': 'تدرب على المفردات بشكل تفاعلي',
+        'flashcards-known': 'أعرف هذه',
+        'flashcards-unknown': 'لا أعرف',
+        'flashcards-next': 'التالي',
+        'flashcards-prev': 'السابق',
+        'flashcards-shuffle': 'خلط',
+        
+        // Voice Recording
+        'voice-title': 'تسجيل الصوت',
+        'voice-desc': 'تدرب على النطق',
+        'voice-record': 'تسجيل',
+        'voice-stop': 'إيقاف',
+        'voice-play': 'تشغيل',
+        'voice-delete': 'حذف',
+        'voice-next': 'الكلمة التالية',
+        
+        // Custom Audio
+        'custom-audio-title': 'الصوت المخصص',
+        'custom-audio-desc': 'ارفع ملفات صوتية من Nico',
+        'custom-audio-upload': 'اختر الملف',
+        'custom-audio-drop': 'أو اسحب الملف هنا',
+        
+        // Exercises
+        'exercises-title': 'التمارين التفاعلية',
+        'exercises-desc': 'تدرب وحسّن مهاراتك',
+        
+        // Statistics
+        'stats-title': 'إحصائياتك',
+        'stats-desc': 'تتبع تقدمك',
+        'stats-streak': 'أيام متتالية',
+        'stats-exercises': 'تمارين مكتملة',
+        'stats-vocab': 'مفردات متعلمة',
+        'stats-minutes': 'دقائق تعلم',
+        
+        // Achievements
+        'achievements-title': 'الإنجازات',
+        'achievements-unlock': 'فتح',
+        
+        // Footer
+        'footer-dedication': 'لماريامي 🇬🇪',
+        'footer-quote': 'التعلم هو رحلة، وليس وجهة',
+        'footer-from': 'بحب من نيكو 💝',
+        
+        // C1 Preparation
+        'c1-ready': 'هل أنت مستعد لامتحان C1؟',
+        'c1-desc': 'تدريب مستهدف لجميع أجزاء الامتحان: الفهم القرائي، الفهم السماعي، التعبير الكتابي والتعبير الشفهي',
+        'c1-feat1': 'استراتيجيات الامتحان',
+        'c1-feat2': 'نماذج امتحانات',
+        'c1-feat3': 'إدارة الوقت',
+        'c1-feat4': 'معايير التقييم',
+        'c1-open': 'بدء امتحان C1'
     }
 };
 
@@ -302,6 +400,15 @@ let currentLanguage = localStorage.getItem('deutschLernenLanguage') || 'de';
 function changeLanguage(lang) {
     currentLanguage = lang;
     localStorage.setItem('deutschLernenLanguage', lang);
+    
+    // RTL support for Arabic
+    if (lang === 'ar') {
+        document.body.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+        document.body.setAttribute('dir', 'ltr');
+        document.documentElement.setAttribute('dir', 'ltr');
+    }
     
     // Update all translated elements
     document.querySelectorAll('[data-translate]').forEach(el => {

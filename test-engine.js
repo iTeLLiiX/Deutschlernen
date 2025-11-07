@@ -112,11 +112,55 @@ const testTranslations = {
         'test-best': 'საუკეთესო შედეგი',
         'test-attempts': 'მცდელობები',
         'test-start': 'ტესტის დაწყება'
+    },
+    ar: {
+        // Navigation
+        'nav-home': 'الرئيسية',
+        'nav-tests': 'الاختبارات',
+        'nav-exam': 'امتحان C1',
+        
+        // Hero
+        'test-hero-badge': 'التحضير للامتحان',
+        'test-hero-title': 'الاختبارات ومحاكاة الامتحان',
+        'test-hero-desc': 'استعد على النحو الأمثل لامتحان C1 باختبارات واقعية وملاحظات مفصلة',
+        
+        // Categories
+        'test-cat-reading': 'القراءة',
+        'test-cat-listening': 'الاستماع',
+        'test-cat-writing': 'الكتابة',
+        'test-cat-speaking': 'التحدث',
+        'test-cat-reading-num': '8 اختبارات',
+        'test-cat-listening-num': '6 اختبارات',
+        'test-cat-writing-num': '4 اختبارات',
+        'test-cat-speaking-num': '5 اختبارات',
+        
+        // Quick Tests
+        'test-quick-label': 'اختبارات سريعة',
+        'test-quick-title': 'اختبر معرفتك',
+        'test-quick-desc': 'اختبارات قصيرة في ما بين - المدة: 5-10 دقائق',
+        
+        // Test Cards
+        'test-artikel-title': 'اختبار الأداة',
+        'test-artikel-desc': 'اختبر معرفتك بـ der, die, das',
+        'test-5min': '5 دقائق',
+        'test-20q': '20 سؤال',
+        'test-best': 'أفضل نتيجة',
+        'test-attempts': 'المحاولات',
+        'test-start': 'بدء الاختبار'
     }
 };
 
 // Apply translations function for test page
 function applyTestTranslations(lang) {
+    // RTL support for Arabic
+    if (lang === 'ar') {
+        document.body.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+        document.body.setAttribute('dir', 'ltr');
+        document.documentElement.setAttribute('dir', 'ltr');
+    }
+    
     document.querySelectorAll('[data-translate]').forEach(el => {
         const key = el.getAttribute('data-translate');
         if (testTranslations[lang] && testTranslations[lang][key]) {
