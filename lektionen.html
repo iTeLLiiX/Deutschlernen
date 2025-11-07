@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alle Lektionen | Deutsch Meistern</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lesson-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scroll-progress"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">Deutsch Meistern</span>
+                        <span class="logo-subtitle">Alle Lektionen</span>
+                    </div>
+                </div>
+                
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="de">🇩🇪</button>
+                    <button class="lang-btn" data-lang="en">🇬🇧</button>
+                    <button class="lang-btn" data-lang="ka">🇬🇪</button>
+                </div>
+                
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">
+                        <i class="fa-solid fa-home"></i>
+                        <span>Startseite</span>
+                    </a>
+                    <a href="tests.html" class="nav-link">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                        <span>Tests</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Lesson Library Hero -->
+    <section class="lesson-hero">
+        <div class="container">
+            <div class="lesson-hero-content">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Kompletter Kurs</span>
+                </div>
+                <h1>A1 bis C2 - Vollständiger Lernpfad</h1>
+                <p>Vom ersten Wort bis zum Muttersprachler-Niveau</p>
+                
+                <div class="level-selector">
+                    <button class="level-selector-btn active" onclick="filterLessons('all')">Alle Niveaus</button>
+                    <button class="level-selector-btn" onclick="filterLessons('a1')">A1</button>
+                    <button class="level-selector-btn" onclick="filterLessons('a2')">A2</button>
+                    <button class="level-selector-btn" onclick="filterLessons('b1')">B1</button>
+                    <button class="level-selector-btn" onclick="filterLessons('b2')">B2</button>
+                    <button class="level-selector-btn" onclick="filterLessons('c1')">C1</button>
+                    <button class="level-selector-btn" onclick="filterLessons('c2')">C2</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complete Lesson Structure -->
+    <section class="lessons-library">
+        <div class="container">
+            
+            <!-- A1 LEVEL -->
+            <div class="level-section" data-level="a1">
+                <div class="level-section-header">
+                    <div class="level-badge-large level-a1">A1</div>
+                    <div>
+                        <h2>Anfänger - Grundlagen</h2>
+                        <p>Erste Schritte, Alltagssituationen, Grundwortschatz</p>
+                    </div>
+                </div>
+
+                <div class="lessons-grid">
+                    <div class="lesson-item" onclick="openLesson('a1-1')">
+                        <div class="lesson-number">1</div>
+                        <div class="lesson-content">
+                            <h3>Begrüßungen & Vorstellungen</h3>
+                            <p>Hallo, Guten Tag, Wie heißt du?, Woher kommst du?</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 25 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 20 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('a1-2')">
+                        <div class="lesson-number">2</div>
+                        <div class="lesson-content">
+                            <h3>Zahlen, Datum & Uhrzeit</h3>
+                            <p>Eins bis Hundert, Wochentage, Monate, Wie spät ist es?</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 40 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 25 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('a1-3')">
+                        <div class="lesson-number">3</div>
+                        <div class="lesson-content">
+                            <h3>Familie & Beziehungen</h3>
+                            <p>Mutter, Vater, Geschwister, Freund, Beziehungen beschreiben</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 30 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 20 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('a1-4')">
+                        <div class="lesson-number">4</div>
+                        <div class="lesson-content">
+                            <h3>Essen & Trinken</h3>
+                            <p>Lebensmittel, Restaurant, Bestellen, Einkaufen</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 50 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 30 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('a1-5')">
+                        <div class="lesson-number">5</div>
+                        <div class="lesson-content">
+                            <h3>Wohnung & Haus</h3>
+                            <p>Zimmer, Möbel, Wohnungssuche, Beschreibungen</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 45 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 25 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('a1-6')">
+                        <div class="lesson-number">6</div>
+                        <div class="lesson-content">
+                            <h3>Freizeit & Hobbys</h3>
+                            <p>Sport, Musik, Lesen, Was machst du gerne?</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 35 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 20 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- A2 LEVEL -->
+            <div class="level-section" data-level="a2">
+                <div class="level-section-header">
+                    <div class="level-badge-large level-a2">A2</div>
+                    <div>
+                        <h2>Grundlegende Kenntnisse</h2>
+                        <p>Erweiterte Alltagssituationen, mehr Grammatik, größerer Wortschatz</p>
+                    </div>
+                </div>
+
+                <div class="lessons-grid">
+                    <div class="lesson-item" onclick="openLesson('a2-1')">
+                        <div class="lesson-number">7</div>
+                        <div class="lesson-content">
+                            <h3>Arbeit & Beruf</h3>
+                            <p>Berufe, Arbeitsplatz, Bewerbung, Lebenslauf</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 60 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 35 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('a2-2')">
+                        <div class="lesson-number">8</div>
+                        <div class="lesson-content">
+                            <h3>Gesundheit & Körper</h3>
+                            <p>Beim Arzt, Körperteile, Krankheiten, Medikamente</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 55 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 30 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('a2-3')">
+                        <div class="lesson-number">9</div>
+                        <div class="lesson-content">
+                            <h3>Reisen & Verkehr</h3>
+                            <p>Bahnhof, Flughafen, Hotel, Wegbeschreibung</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 50 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 30 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('a2-4')">
+                        <div class="lesson-number">10</div>
+                        <div class="lesson-content">
+                            <h3>Einkaufen & Kleidung</h3>
+                            <p>Geschäfte, Kleidungsstücke, Farben, Größen</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 45 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 25 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B1 LEVEL -->
+            <div class="level-section" data-level="b1">
+                <div class="level-section-header">
+                    <div class="level-badge-large level-b1">B1</div>
+                    <div>
+                        <h2>Mittelstufe - Selbstständige Sprachverwendung</h2>
+                        <p>Komplexere Grammatik, Meinungen äußern, Texte verstehen</p>
+                    </div>
+                </div>
+
+                <div class="lessons-grid">
+                    <div class="lesson-item" onclick="openLesson('b1-1')">
+                        <div class="lesson-number">11</div>
+                        <div class="lesson-content">
+                            <h3>Meinungen & Diskussionen</h3>
+                            <p>Ich denke, Meiner Meinung nach, Argumentieren, Zustimmen/Ablehnen</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 70 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 40 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('b1-2')">
+                        <div class="lesson-number">12</div>
+                        <div class="lesson-content">
+                            <h3>Medien & Kommunikation</h3>
+                            <p>Internet, Smartphone, Soziale Medien, Nachrichten</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 65 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 35 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('b1-3')">
+                        <div class="lesson-number">13</div>
+                        <div class="lesson-content">
+                            <h3>Umwelt & Natur</h3>
+                            <p>Klimawandel, Recycling, Naturschutz, Nachhaltigkeit</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 60 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 35 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('b1-4')">
+                        <div class="lesson-number">14</div>
+                        <div class="lesson-content">
+                            <h3>Gefühle & Emotionen</h3>
+                            <p>Freude, Trauer, Wut, Angst ausdrücken, Empathie</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 55 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 30 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B2 LEVEL -->
+            <div class="level-section" data-level="b2">
+                <div class="level-section-header">
+                    <div class="level-badge-large level-b2">B2</div>
+                    <div>
+                        <h2>Fortgeschrittene Mittelstufe</h2>
+                        <p>Komplexe Texte, Fachgespräche, flüssige Konversation</p>
+                    </div>
+                </div>
+
+                <div class="lessons-grid">
+                    <div class="lesson-item" onclick="openLesson('b2-1')">
+                        <div class="lesson-number">15</div>
+                        <div class="lesson-content">
+                            <h3>Politik & Gesellschaft</h3>
+                            <p>Demokratie, Wahlen, soziale Themen, Diskussionen</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 80 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 45 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('b2-2')">
+                        <div class="lesson-number">16</div>
+                        <div class="lesson-content">
+                            <h3>Wirtschaft & Finanzen</h3>
+                            <p>Banken, Investitionen, Steuern, Wirtschaftsnachrichten</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 75 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 40 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('b2-3')">
+                        <div class="lesson-number">17</div>
+                        <div class="lesson-content">
+                            <h3>Wissenschaft & Technologie</h3>
+                            <p>Forschung, Erfindungen, digitale Welt, Innovation</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 70 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 40 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('b2-4')">
+                        <div class="lesson-number">18</div>
+                        <div class="lesson-content">
+                            <h3>Kultur & Kunst</h3>
+                            <p>Theater, Musik, Malerei, Literatur, kulturelle Veranstaltungen</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 65 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 35 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- C1 LEVEL -->
+            <div class="level-section" data-level="c1">
+                <div class="level-section-header">
+                    <div class="level-badge-large level-c1">C1</div>
+                    <div>
+                        <h2>Fachkundige Sprachkenntnisse</h2>
+                        <p>Anspruchsvolle Texte, Fachsprache, spontane Kommunikation</p>
+                    </div>
+                </div>
+
+                <div class="lessons-grid">
+                    <div class="lesson-item" onclick="openLesson('c1-1')">
+                        <div class="lesson-number">19</div>
+                        <div class="lesson-content">
+                            <h3>Akademische Sprache</h3>
+                            <p>Wissenschaftliche Texte, Forschung, Studium, Präsentationen</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 100 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 50 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('c1-2')">
+                        <div class="lesson-number">20</div>
+                        <div class="lesson-content">
+                            <h3>Formelle Korrespondenz</h3>
+                            <p>Geschäftsbriefe, Bewerbungen, offizielle Dokumente</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 90 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 45 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('c1-3')">
+                        <div class="lesson-number">21</div>
+                        <div class="lesson-content">
+                            <h3>Idiome & Redewendungen</h3>
+                            <p>Deutsche Sprichwörter, Metaphern, bildliche Sprache</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 80 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 40 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('c1-4')">
+                        <div class="lesson-number">22</div>
+                        <div class="lesson-content">
+                            <h3>Abstrakte Konzepte</h3>
+                            <p>Philosophie, Ethik, komplexe Gedanken ausdrücken</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 95 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 45 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- C2 LEVEL - MUTTERSPRACHLER -->
+            <div class="level-section" data-level="c2">
+                <div class="level-section-header">
+                    <div class="level-badge-large level-c2">C2</div>
+                    <div>
+                        <h2>Annähernd Muttersprachliche Kenntnisse</h2>
+                        <p>Perfektion, Nuancen, Dialekte, Literatur, wie ein Deutscher</p>
+                    </div>
+                </div>
+
+                <div class="lessons-grid">
+                    <div class="lesson-item" onclick="openLesson('c2-1')">
+                        <div class="lesson-number">23</div>
+                        <div class="lesson-content">
+                            <h3>Deutsche Literatur</h3>
+                            <p>Goethe, Schiller, Kafka, Hesse - Klassiker verstehen</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 120 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 60 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('c2-2')">
+                        <div class="lesson-number">24</div>
+                        <div class="lesson-content">
+                            <h3>Umgangssprache & Slang</h3>
+                            <p>Wie Deutsche wirklich sprechen, regionale Ausdrücke</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 100 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 50 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('c2-3')">
+                        <div class="lesson-number">25</div>
+                        <div class="lesson-content">
+                            <h3>Feine Nuancen & Stil</h3>
+                            <p>Subtile Unterschiede, Register, Kontext-angemessene Sprache</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 110 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 55 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('c2-4')">
+                        <div class="lesson-number">26</div>
+                        <div class="lesson-content">
+                            <h3>Dialekte & Regionale Varianten</h3>
+                            <p>Bayrisch, Schwäbisch, Norddeutsch - Deutschland verstehen</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 90 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 45 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('c2-5')">
+                        <div class="lesson-number">27</div>
+                        <div class="lesson-content">
+                            <h3>Meisterschaft - Wie ein Muttersprachler</h3>
+                            <p>Perfekte Beherrschung, kulturelles Verständnis, natürliche Sprache</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 150 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 70 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Topics -->
+            <div class="level-section special-section">
+                <div class="level-section-header">
+                    <div class="level-badge-large level-special">★</div>
+                    <div>
+                        <h2>Spezialthemen</h2>
+                        <p>Bonus-Lektionen für perfekte Beherrschung</p>
+                    </div>
+                </div>
+
+                <div class="lessons-grid">
+                    <div class="lesson-item" onclick="openLesson('special-1')">
+                        <div class="lesson-number">S1</div>
+                        <div class="lesson-content">
+                            <h3>Deutsche Geschichte & Kultur</h3>
+                            <p>Von Preußen bis heute, kulturelles Verständnis</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 100 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 60 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('special-2')">
+                        <div class="lesson-number">S2</div>
+                        <div class="lesson-content">
+                            <h3>Humor & Ironie</h3>
+                            <p>Deutschen Humor verstehen, Wortspiele, Sarkasmus</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 80 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 45 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('special-3')">
+                        <div class="lesson-number">S3</div>
+                        <div class="lesson-content">
+                            <h3>Juristische Sprache</h3>
+                            <p>Verträge, Behörden, Rechtssystem verstehen</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 120 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 60 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+
+                    <div class="lesson-item" onclick="openLesson('special-4')">
+                        <div class="lesson-number">S4</div>
+                        <div class="lesson-content">
+                            <h3>Medizinische Fachsprache</h3>
+                            <p>Ärzte verstehen, medizinische Berichte, Fachterminologie</p>
+                            <div class="lesson-meta-small">
+                                <span><i class="fa-solid fa-book"></i> 110 Vokabeln</span>
+                                <span><i class="fa-regular fa-clock"></i> 55 Min</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Overview -->
+            <div class="progress-overview">
+                <h2><i class="fa-solid fa-chart-line"></i> Dein Gesamtfortschritt</h2>
+                <div class="total-progress-stats">
+                    <div class="progress-stat">
+                        <div class="progress-circle" data-progress="0">
+                            <svg width="120" height="120">
+                                <circle cx="60" cy="60" r="54" fill="none" stroke="#e2e8f0" stroke-width="12"/>
+                                <circle cx="60" cy="60" r="54" fill="none" stroke="#f7b267" stroke-width="12" 
+                                        stroke-dasharray="339" stroke-dashoffset="339" class="progress-ring"/>
+                            </svg>
+                            <div class="progress-text">
+                                <strong id="totalLessonsCompleted">0</strong>
+                                <span>/ 31</span>
+                            </div>
+                        </div>
+                        <p>Lektionen abgeschlossen</p>
+                    </div>
+
+                    <div class="progress-stat">
+                        <h3 id="totalVocabCount">0</h3>
+                        <p>Vokabeln gelernt</p>
+                        <small>Ziel: 2,000+</small>
+                    </div>
+
+                    <div class="progress-stat">
+                        <h3 id="totalTimeSpent">0h</h3>
+                        <p>Lernzeit</p>
+                        <small>Empfohlen: 200h+</small>
+                    </div>
+
+                    <div class="progress-stat">
+                        <h3 id="currentLevel">A1</h3>
+                        <p>Aktuelles Niveau</p>
+                        <small>Ziel: C2</small>
+                    </div>
+                </div>
+
+                <div class="level-path-visual">
+                    <div class="path-line">
+                        <div class="path-node completed">
+                            <span>A1</span>
+                        </div>
+                        <div class="path-connector"></div>
+                        <div class="path-node">
+                            <span>A2</span>
+                        </div>
+                        <div class="path-connector"></div>
+                        <div class="path-node">
+                            <span>B1</span>
+                        </div>
+                        <div class="path-connector"></div>
+                        <div class="path-node">
+                            <span>B2</span>
+                        </div>
+                        <div class="path-connector"></div>
+                        <div class="path-node">
+                            <span>C1</span>
+                        </div>
+                        <div class="path-connector"></div>
+                        <div class="path-node">
+                            <span>C2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Deutsch Meistern. Erstellt mit ❤️ von Nico für Mariami</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="lesson-engine.js"></script>
+</body>
+</html>
+

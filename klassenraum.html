@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtueller Klassenraum | Deutsch Meistern</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="classroom-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="classroom-body">
+    <div class="scroll-progress"></div>
+
+    <!-- Header -->
+    <header class="header classroom-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">Virtueller Klassenraum</span>
+                        <span class="logo-subtitle">Interaktives Lernen</span>
+                    </div>
+                </div>
+                
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="de">🇩🇪</button>
+                    <button class="lang-btn" data-lang="en">🇬🇧</button>
+                    <button class="lang-btn" data-lang="ka">🇬🇪</button>
+                </div>
+                
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">
+                        <i class="fa-solid fa-home"></i>
+                        <span>Startseite</span>
+                    </a>
+                    <a href="lektionen.html" class="nav-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Lektionen</span>
+                    </a>
+                    <a href="tests.html" class="nav-link">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                        <span>Tests</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Welcome to Class -->
+    <section class="classroom-welcome">
+        <div class="container">
+            <div class="welcome-board">
+                <div class="teacher-avatar">
+                    <div class="avatar-circle">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Dein Lehrer: Nico 👨‍🏫</h3>
+                        <p>Immer für dich da!</p>
+                    </div>
+                </div>
+                <div class="welcome-message">
+                    <h1><i class="fa-solid fa-chalkboard"></i> Willkommen im Klassenraum, Mariami!</h1>
+                    <p class="tagline">Heute ist <strong id="todayDate"></strong> - Bereit zum Lernen? 💪</p>
+                </div>
+                <div class="daily-motivation" id="dailyMotivation">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>"Der beste Zeitpunkt anzufangen war gestern. Der zweitbeste ist jetzt!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Today's Lesson Plan -->
+    <section class="todays-plan section">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-calendar-day"></i> Heutiger Stundenplan</span>
+                <h2 class="section-title">Deine Lektionen für heute</h2>
+                <p class="section-description">Folge dem Tagesplan für optimale Lernerfolge</p>
+            </div>
+
+            <div class="lesson-timeline">
+                <div class="timeline-item" data-status="pending" onclick="startActivity('warmup')">
+                    <div class="timeline-time">
+                        <i class="fa-regular fa-clock"></i>
+                        <span>0-10 Min</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <div class="timeline-text">
+                            <h4>Warm-up: Schnelles Vokabel-Spiel</h4>
+                            <p>Aktiviere dein Gehirn mit einem schnellen Spiel</p>
+                            <div class="timeline-points">+20 Punkte</div>
+                        </div>
+                    </div>
+                    <div class="timeline-status">
+                        <i class="fa-solid fa-play-circle"></i>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-status="locked" onclick="startActivity('vocabulary')">
+                    <div class="timeline-time">
+                        <i class="fa-regular fa-clock"></i>
+                        <span>10-25 Min</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <div class="timeline-text">
+                            <h4>Neue Vokabeln: Alltagssituationen</h4>
+                            <p>Lerne 15 neue Wörter mit Kontext</p>
+                            <div class="timeline-points">+30 Punkte</div>
+                        </div>
+                    </div>
+                    <div class="timeline-status">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-status="locked" onclick="startActivity('conversation')">
+                    <div class="timeline-time">
+                        <i class="fa-regular fa-clock"></i>
+                        <span>25-40 Min</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <div class="timeline-text">
+                            <h4>Konversations-Praxis: Im Restaurant</h4>
+                            <p>Rollenspiel mit interaktiven Dialogen</p>
+                            <div class="timeline-points">+40 Punkte</div>
+                        </div>
+                    </div>
+                    <div class="timeline-status">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-status="locked" onclick="startActivity('grammar')">
+                    <div class="timeline-time">
+                        <i class="fa-regular fa-clock"></i>
+                        <span>40-55 Min</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-code-branch"></i>
+                        </div>
+                        <div class="timeline-text">
+                            <h4>Grammatik-Workshop: Perfekt & Präteritum</h4>
+                            <p>Zeitformen spielend lernen</p>
+                            <div class="timeline-points">+35 Punkte</div>
+                        </div>
+                    </div>
+                    <div class="timeline-status">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-status="locked" onclick="startActivity('speaking')">
+                    <div class="timeline-time">
+                        <i class="fa-regular fa-clock"></i>
+                        <span>55-70 Min</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                        <div class="timeline-text">
+                            <h4>Sprech-Übung: Erzähle über deinen Tag</h4>
+                            <p>Voice Recording mit KI-Feedback</p>
+                            <div class="timeline-points">+50 Punkte</div>
+                        </div>
+                    </div>
+                    <div class="timeline-status">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-status="locked" onclick="startActivity('homework')">
+                    <div class="timeline-time">
+                        <i class="fa-regular fa-clock"></i>
+                        <span>70-90 Min</span>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-home"></i>
+                        </div>
+                        <div class="timeline-text">
+                            <h4>Hausaufgaben: Kurzer Text schreiben</h4>
+                            <p>Schreibe 100 Wörter über dein Lieblingsthema</p>
+                            <div class="timeline-points">+60 Punkte</div>
+                        </div>
+                    </div>
+                    <div class="timeline-status">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Games Section -->
+    <section class="games-section section-alt">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-gamepad"></i> Lernspiele</span>
+                <h2 class="section-title">Spielend Deutsch lernen</h2>
+                <p class="section-description">Spaß haben und dabei besser werden!</p>
+            </div>
+
+            <div class="games-grid">
+                <!-- Game 1: Word Match -->
+                <div class="game-card" onclick="startGame('wordmatch')">
+                    <div class="game-icon">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Wort-Match</h3>
+                    <p>Verbinde deutsche Wörter mit Übersetzungen</p>
+                    <div class="game-difficulty">
+                        <span class="diff-badge easy">Einfach</span>
+                    </div>
+                    <div class="game-stats-small">
+                        <span><i class="fa-solid fa-trophy"></i> Highscore: <strong id="wordmatchHigh">0</strong></span>
+                    </div>
+                    <button class="btn btn-game">
+                        <i class="fa-solid fa-play"></i>
+                        Spielen
+                    </button>
+                </div>
+
+                <!-- Game 2: Speed Typing -->
+                <div class="game-card" onclick="startGame('speedtyping')">
+                    <div class="game-icon">
+                        <i class="fa-solid fa-keyboard"></i>
+                    </div>
+                    <h3>Schnell-Tipper</h3>
+                    <p>Tippe deutsche Wörter so schnell wie möglich</p>
+                    <div class="game-difficulty">
+                        <span class="diff-badge medium">Mittel</span>
+                    </div>
+                    <div class="game-stats-small">
+                        <span><i class="fa-solid fa-trophy"></i> Highscore: <strong id="speedtypingHigh">0</strong></span>
+                    </div>
+                    <button class="btn btn-game">
+                        <i class="fa-solid fa-play"></i>
+                        Spielen
+                    </button>
+                </div>
+
+                <!-- Game 3: Memory -->
+                <div class="game-card" onclick="startGame('memory')">
+                    <div class="game-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3>Vokabel-Memory</h3>
+                    <p>Finde die passenden Paare (Deutsch-English)</p>
+                    <div class="game-difficulty">
+                        <span class="diff-badge easy">Einfach</span>
+                    </div>
+                    <div class="game-stats-small">
+                        <span><i class="fa-solid fa-trophy"></i> Beste Zeit: <strong id="memoryHigh">--</strong></span>
+                    </div>
+                    <button class="btn btn-game">
+                        <i class="fa-solid fa-play"></i>
+                        Spielen
+                    </button>
+                </div>
+
+                <!-- Game 4: Sentence Builder -->
+                <div class="game-card" onclick="startGame('sentencebuilder')">
+                    <div class="game-icon">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Satz-Baumeister</h3>
+                    <p>Baue korrekte deutsche Sätze aus Wörtern</p>
+                    <div class="game-difficulty">
+                        <span class="diff-badge hard">Schwer</span>
+                    </div>
+                    <div class="game-stats-small">
+                        <span><i class="fa-solid fa-trophy"></i> Level: <strong id="sentencebuilderLevel">1</strong></span>
+                    </div>
+                    <button class="btn btn-game">
+                        <i class="fa-solid fa-play"></i>
+                        Spielen
+                    </button>
+                </div>
+
+                <!-- Game 5: Listening Challenge -->
+                <div class="game-card" onclick="startGame('listening')">
+                    <div class="game-icon">
+                        <i class="fa-solid fa-ear-listen"></i>
+                    </div>
+                    <h3>Hör-Challenge</h3>
+                    <p>Höre Wörter und tippe sie richtig</p>
+                    <div class="game-difficulty">
+                        <span class="diff-badge medium">Mittel</span>
+                    </div>
+                    <div class="game-stats-small">
+                        <span><i class="fa-solid fa-trophy"></i> Streak: <strong id="listeningStreak">0</strong></span>
+                    </div>
+                    <button class="btn btn-game">
+                        <i class="fa-solid fa-play"></i>
+                        Spielen
+                    </button>
+                </div>
+
+                <!-- Game 6: Article Rush -->
+                <div class="game-card" onclick="startGame('articlerush')">
+                    <div class="game-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3>Artikel-Rush</h3>
+                    <p>Wähle Artikel so schnell wie möglich! Gegen die Zeit!</p>
+                    <div class="game-difficulty">
+                        <span class="diff-badge hard">Schwer</span>
+                    </div>
+                    <div class="game-stats-small">
+                        <span><i class="fa-solid fa-trophy"></i> Rekord: <strong id="articlerushRecord">0</strong></span>
+                    </div>
+                    <button class="btn btn-game">
+                        <i class="fa-solid fa-play"></i>
+                        Spielen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conversation Simulator -->
+    <section class="conversation-simulator section">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-users"></i> Konversations-Simulator</span>
+                <h2 class="section-title">Reale Situationen üben</h2>
+                <p class="section-description">Interaktive Dialoge wie im echten Leben</p>
+            </div>
+
+            <div class="scenarios-grid">
+                <div class="scenario-card" onclick="startScenario('restaurant')">
+                    <div class="scenario-image">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="scenario-content">
+                        <h3>Im Restaurant</h3>
+                        <p>Bestelle Essen, sprich mit dem Kellner, bezahle die Rechnung</p>
+                        <div class="scenario-meta">
+                            <span class="scenario-level">A1-A2</span>
+                            <span class="scenario-duration">10 Min</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline btn-full">
+                        <i class="fa-solid fa-play"></i>
+                        Szenario starten
+                    </button>
+                </div>
+
+                <div class="scenario-card" onclick="startScenario('doctor')">
+                    <div class="scenario-image">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <div class="scenario-content">
+                        <h3>Beim Arzt</h3>
+                        <p>Erkläre deine Symptome, verstehe den Arzt, hole Rezepte</p>
+                        <div class="scenario-meta">
+                            <span class="scenario-level">A2-B1</span>
+                            <span class="scenario-duration">12 Min</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline btn-full">
+                        <i class="fa-solid fa-play"></i>
+                        Szenario starten
+                    </button>
+                </div>
+
+                <div class="scenario-card" onclick="startScenario('jobinterview')">
+                    <div class="scenario-image">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <div class="scenario-content">
+                        <h3>Bewerbungsgespräch</h3>
+                        <p>Stelle dich vor, beantworte Fragen, überzeuge den Chef</p>
+                        <div class="scenario-meta">
+                            <span class="scenario-level">B1-B2</span>
+                            <span class="scenario-duration">15 Min</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline btn-full">
+                        <i class="fa-solid fa-play"></i>
+                        Szenario starten
+                    </button>
+                </div>
+
+                <div class="scenario-card" onclick="startScenario('apartment')">
+                    <div class="scenario-image">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="scenario-content">
+                        <h3>Wohnungsbesichtigung</h3>
+                        <p>Frage nach Details, verhandle, unterschreibe Vertrag</p>
+                        <div class="scenario-meta">
+                            <span class="scenario-level">B1</span>
+                            <span class="scenario-duration">12 Min</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline btn-full">
+                        <i class="fa-solid fa-play"></i>
+                        Szenario starten
+                    </button>
+                </div>
+
+                <div class="scenario-card" onclick="startScenario('bank')">
+                    <div class="scenario-image">
+                        <i class="fa-solid fa-landmark"></i>
+                    </div>
+                    <div class="scenario-content">
+                        <h3>Bank & Behörden</h3>
+                        <p>Konto eröffnen, Formulare ausfüllen, offiziell kommunizieren</p>
+                        <div class="scenario-meta">
+                            <span class="scenario-level">B1-B2</span>
+                            <span class="scenario-duration">15 Min</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline btn-full">
+                        <i class="fa-solid fa-play"></i>
+                        Szenario starten
+                    </button>
+                </div>
+
+                <div class="scenario-card" onclick="startScenario('smalltalk')">
+                    <div class="scenario-image">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <div class="scenario-content">
+                        <h3>Small Talk & Networking</h3>
+                        <p>Plaudern, Freunde finden, soziale Kontakte knüpfen</p>
+                        <div class="scenario-meta">
+                            <span class="scenario-level">A2-B1</span>
+                            <span class="scenario-duration">10 Min</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline btn-full">
+                        <i class="fa-solid fa-play"></i>
+                        Szenario starten
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Mode -->
+    <section class="story-mode section">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-book-open"></i> Story-Modus</span>
+                <h2 class="section-title">Lerne durch Geschichten</h2>
+                <p class="section-description">Folge Mariami's Reise in Deutschland</p>
+            </div>
+
+            <div class="story-container">
+                <div class="story-progress-bar">
+                    <div class="story-progress-fill" style="width: 15%"></div>
+                </div>
+                
+                <div class="story-chapters">
+                    <div class="chapter-card active" onclick="openChapter(1)">
+                        <div class="chapter-number">1</div>
+                        <div class="chapter-info">
+                            <h3>Ankunft in Deutschland</h3>
+                            <p>Mariami kommt am Flughafen an. Sie muss den Weg finden...</p>
+                            <div class="chapter-meta">
+                                <span><i class="fa-solid fa-star"></i> A1</span>
+                                <span><i class="fa-solid fa-book"></i> 30 Vokabeln</span>
+                            </div>
+                        </div>
+                        <div class="chapter-status completed">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card" onclick="openChapter(2)">
+                        <div class="chapter-number">2</div>
+                        <div class="chapter-info">
+                            <h3>Die erste Wohnung</h3>
+                            <p>Mariami sucht eine Wohnung. Sie trifft den Vermieter...</p>
+                            <div class="chapter-meta">
+                                <span><i class="fa-solid fa-star"></i> A1-A2</span>
+                                <span><i class="fa-solid fa-book"></i> 40 Vokabeln</span>
+                            </div>
+                        </div>
+                        <div class="chapter-status current">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card locked" onclick="showLockedMessage()">
+                        <div class="chapter-number">3</div>
+                        <div class="chapter-info">
+                            <h3>Der erste Arbeitstag</h3>
+                            <p>Mariami beginnt ihren neuen Job. Neue Kollegen...</p>
+                            <div class="chapter-meta">
+                                <span><i class="fa-solid fa-star"></i> A2</span>
+                                <span><i class="fa-solid fa-book"></i> 50 Vokabeln</span>
+                            </div>
+                        </div>
+                        <div class="chapter-status">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card locked" onclick="showLockedMessage()">
+                        <div class="chapter-number">4</div>
+                        <div class="chapter-info">
+                            <h3>Neue Freunde finden</h3>
+                            <p>Mariami geht zu einem Sprachtreffen...</p>
+                            <div class="chapter-meta">
+                                <span><i class="fa-solid fa-star"></i> A2-B1</span>
+                                <span><i class="fa-solid fa-book"></i> 45 Vokabeln</span>
+                            </div>
+                        </div>
+                        <div class="chapter-status">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                    </div>
+
+                    <div class="chapter-card locked" onclick="showLockedMessage()">
+                        <div class="chapter-number">5</div>
+                        <div class="chapter-info">
+                            <h3>Die C1-Prüfung</h3>
+                            <p>Der große Tag! Mariami macht die Prüfung...</p>
+                            <div class="chapter-meta">
+                                <span><i class="fa-solid fa-star"></i> C1</span>
+                                <span><i class="fa-solid fa-book"></i> 100 Vokabeln</span>
+                            </div>
+                        </div>
+                        <div class="chapter-status">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Challenge -->
+    <section class="daily-challenge section-alt">
+        <div class="container">
+            <div class="challenge-box">
+                <div class="challenge-header">
+                    <div class="challenge-icon">
+                        <i class="fa-solid fa-calendar-star"></i>
+                    </div>
+                    <div class="challenge-info">
+                        <h3>Tägliche Challenge</h3>
+                        <p>Neue Challenge jeden Tag! Sammle Bonus-Punkte!</p>
+                    </div>
+                    <div class="challenge-timer" id="challengeTimer">
+                        <i class="fa-regular fa-clock"></i>
+                        <span>23:45:12</span>
+                    </div>
+                </div>
+                
+                <div class="challenge-content" id="todayChallenge">
+                    <div class="challenge-task">
+                        <h4>Heute's Challenge: "Perfekte Aussprache"</h4>
+                        <p>Nimm 10 Wörter auf und erreiche 90%+ Genauigkeit</p>
+                        <div class="challenge-reward">
+                            <i class="fa-solid fa-gift"></i>
+                            <span>Belohnung: <strong>100 Bonus-Punkte + Spezial-Badge</strong></span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-large" onclick="startDailyChallenge()">
+                        <i class="fa-solid fa-rocket"></i>
+                        Challenge annehmen!
+                    </button>
+                </div>
+                
+                <div class="challenge-streak">
+                    <p>Dein Challenge-Streak: <strong id="challengeStreak">0</strong> Tage 🔥</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Teacher Section -->
+    <section class="virtual-teacher section">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-chalkboard-user"></i> Dein Lehrer Nico</span>
+                <h2 class="section-title">Persönliche Lernhilfe</h2>
+                <p class="section-description">Nico hilft dir bei jedem Schritt</p>
+            </div>
+
+            <div class="teacher-dashboard">
+                <div class="teacher-message-box">
+                    <div class="teacher-avatar-large">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div class="teacher-message">
+                        <h3>Nachricht von Nico:</h3>
+                        <div class="message-content" id="teacherMessage">
+                            <p>"Hallo Mariami! 👋</p>
+                            <p>Ich habe gesehen, dass du heute schon <strong id="todayProgress">0</strong> Minuten gelernt hast! Das ist fantastisch! 🌟</p>
+                            <p>Deine nächste Lektion sollte '<strong>Familie & Beziehungen</strong>' sein. Du machst das super! Weiter so! 💪</p>
+                            <p>Wenn du Fragen hast, schreib mir in den Notizen-Bereich. Ich bin immer für dich da! ❤️</p>
+                            <p>Mit Stolz, Nico 💝"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-tips">
+                    <h3><i class="fa-solid fa-lightbulb"></i> Nico's Lerntipps</h3>
+                    <div class="tips-carousel" id="tipsCarousel">
+                        <div class="tip-slide active">
+                            <h4>Tipp #1: Lerne mit Kontext</h4>
+                            <p>Lerne nie einzelne Wörter! Immer in Sätzen oder Situationen. So bleiben sie im Gedächtnis!</p>
+                        </div>
+                        <div class="tip-slide">
+                            <h4>Tipp #2: Sprich laut!</h4>
+                            <p>Auch wenn du alleine bist - sprich die Wörter laut aus! Nutze das Voice Recording täglich!</p>
+                        </div>
+                        <div class="tip-slide">
+                            <h4>Tipp #3: Fehler sind gut!</h4>
+                            <p>Jeder Fehler ist eine Lernchance. Hab keine Angst, Fehler zu machen!</p>
+                        </div>
+                        <div class="tip-slide">
+                            <h4>Tipp #4: Tägliche Routine</h4>
+                            <p>30 Minuten jeden Tag sind besser als 3 Stunden einmal pro Woche!</p>
+                        </div>
+                        <div class="tip-slide">
+                            <h4>Tipp #5: Habe Spaß!</h4>
+                            <p>Spiele die Spiele, höre deutsche Musik, schau deutsche Filme. Lernen soll Spaß machen!</p>
+                        </div>
+                    </div>
+                    <div class="tips-nav">
+                        <button onclick="previousTip()"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button onclick="nextTip()"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Study Group Simulation -->
+    <section class="study-group section-alt">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-user-group"></i> Lerngruppe</span>
+                <h2 class="section-title">Virtuelle Studiengruppe</h2>
+                <p class="section-description">Lerne "mit" anderen (Simuliert für Motivation)</p>
+            </div>
+
+            <div class="study-group-container">
+                <div class="group-members">
+                    <div class="member-card you">
+                        <div class="member-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h4>Du (Mariami)</h4>
+                        <div class="member-level">Niveau: A1</div>
+                        <div class="member-points">⭐ <span id="yourPoints">0</span> Punkte</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h4>Anna aus Berlin</h4>
+                        <div class="member-level">Niveau: A2</div>
+                        <div class="member-points">⭐ 234 Punkte</div>
+                        <div class="member-status">
+                            <i class="fa-solid fa-circle"></i>
+                            <span>Lernt gerade</span>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #34d399 0%, #10b981 100%);">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h4>Carlos aus Spanien</h4>
+                        <div class="member-level">Niveau: B1</div>
+                        <div class="member-points">⭐ 456 Punkte</div>
+                        <div class="member-status offline">
+                            <i class="fa-solid fa-circle"></i>
+                            <span>Vor 2 Std aktiv</span>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-avatar" style="background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h4>Yuki aus Japan</h4>
+                        <div class="member-level">Niveau: A2</div>
+                        <div class="member-points">⭐ 312 Punkte</div>
+                        <div class="member-status">
+                            <i class="fa-solid fa-circle"></i>
+                            <span>Macht gerade Test</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group-leaderboard">
+                    <h3><i class="fa-solid fa-trophy"></i> Diese Woche</h3>
+                    <div class="leaderboard-list">
+                        <div class="leader-item rank-1">
+                            <span class="rank">🥇</span>
+                            <span class="leader-name">Carlos</span>
+                            <span class="leader-points">156 Punkte</span>
+                        </div>
+                        <div class="leader-item rank-2">
+                            <span class="rank">🥈</span>
+                            <span class="leader-name">Anna</span>
+                            <span class="leader-points">134 Punkte</span>
+                        </div>
+                        <div class="leader-item rank-3">
+                            <span class="rank">🥉</span>
+                            <span class="leader-name">Yuki</span>
+                            <span class="leader-points">98 Punkte</span>
+                        </div>
+                        <div class="leader-item you-rank">
+                            <span class="rank">#4</span>
+                            <span class="leader-name">Du (Mariami)</span>
+                            <span class="leader-points"><span id="yourWeeklyPoints">0</span> Punkte</span>
+                        </div>
+                    </div>
+                    <p class="motivation-text">💪 Noch 48 Punkte bis Platz 3! Du schaffst das!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Immersion Zone -->
+    <section class="immersion-zone section">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-globe"></i> Immersions-Zone</span>
+                <h2 class="section-title">Tauche ein in die deutsche Welt</h2>
+                <p class="section-description">Erlebe Deutschland virtuell</p>
+            </div>
+
+            <div class="immersion-grid">
+                <div class="immersion-card" onclick="startImmersion('tv')">
+                    <div class="immersion-icon">
+                        <i class="fa-solid fa-tv"></i>
+                    </div>
+                    <h3>Deutsche TV-Sendungen</h3>
+                    <p>Kurze Clips mit Untertiteln und Vokabel-Erklärungen</p>
+                    <div class="immersion-available">
+                        <i class="fa-solid fa-video"></i>
+                        <span>15 Videos verfügbar</span>
+                    </div>
+                </div>
+
+                <div class="immersion-card" onclick="startImmersion('podcast')">
+                    <div class="immersion-icon">
+                        <i class="fa-solid fa-podcast"></i>
+                    </div>
+                    <h3>Deutsche Podcasts</h3>
+                    <p>Für Lerner optimierte Audio-Inhalte</p>
+                    <div class="immersion-available">
+                        <i class="fa-solid fa-headphones"></i>
+                        <span>20 Episoden</span>
+                    </div>
+                </div>
+
+                <div class="immersion-card" onclick="startImmersion('news')">
+                    <div class="immersion-icon">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </div>
+                    <h3>Langsam gesprochene Nachrichten</h3>
+                    <p>Aktuelle Themen in einfachem Deutsch</p>
+                    <div class="immersion-available">
+                        <i class="fa-solid fa-microphone"></i>
+                        <span>Täglich neu</span>
+                    </div>
+                </div>
+
+                <div class="immersion-card" onclick="startImmersion('songs')">
+                    <div class="immersion-icon">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <h3>Deutsche Lieder</h3>
+                    <p>Mit Lyrics und Übersetzungen</p>
+                    <div class="immersion-available">
+                        <i class="fa-solid fa-compact-disc"></i>
+                        <span>50+ Songs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Notebook -->
+    <section class="personal-notebook section">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-notebook"></i> Dein Lern-Tagebuch</span>
+                <h2 class="section-title">Notizen & Reflexionen</h2>
+                <p class="section-description">Dokumentiere deine Lernreise</p>
+            </div>
+
+            <div class="notebook-container">
+                <div class="notebook-sidebar">
+                    <button class="notebook-btn active" onclick="switchNotebook('daily')">
+                        <i class="fa-solid fa-calendar-day"></i>
+                        Tägliche Notizen
+                    </button>
+                    <button class="notebook-btn" onclick="switchNotebook('vocab')">
+                        <i class="fa-solid fa-book"></i>
+                        Vokabel-Sammlung
+                    </button>
+                    <button class="notebook-btn" onclick="switchNotebook('questions')">
+                        <i class="fa-solid fa-question-circle"></i>
+                        Fragen an Nico
+                    </button>
+                    <button class="notebook-btn" onclick="switchNotebook('progress')">
+                        <i class="fa-solid fa-chart-line"></i>
+                        Fortschritts-Journal
+                    </button>
+                </div>
+
+                <div class="notebook-content">
+                    <div class="notebook-page" id="notebookDaily">
+                        <h3>Tägliches Lern-Tagebuch</h3>
+                        <div class="date-selector">
+                            <button onclick="changeDate(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                            <span id="selectedDate">Heute</span>
+                            <button onclick="changeDate(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                        <textarea class="notebook-textarea" id="dailyNotes" placeholder="Was hast du heute gelernt? Was war schwierig? Was hat Spaß gemacht?"></textarea>
+                        <button class="btn btn-primary" onclick="saveNote('daily')">
+                            <i class="fa-solid fa-save"></i>
+                            Speichern
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Deutsch Meistern - Virtueller Klassenraum. Erstellt mit ❤️ von Nico für Mariami</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="game-modal">
+        <div class="game-modal-content">
+            <div class="game-modal-header">
+                <h3 id="gameTitle">Spiel</h3>
+                <div class="game-score">
+                    <i class="fa-solid fa-star"></i>
+                    <span id="gameScore">0</span>
+                </div>
+                <button class="game-close" onclick="closeGame()">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="game-modal-body" id="gameBody">
+                <!-- Game content goes here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
+    <script src="classroom-engine.js"></script>
+</body>
+</html>
+

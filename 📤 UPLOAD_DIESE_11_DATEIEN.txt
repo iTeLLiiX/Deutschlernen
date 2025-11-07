@@ -1,0 +1,234 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║          📤 DIESE 11 DATEIEN AUF NETLIFY ZIEHEN! 📤         ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+✅ UPLOAD-LISTE (11 DATEIEN):
+════════════════════════════════
+
+Markiere im Mari-Ordner folgende Dateien:
+(Mit Strg+Klick alle auf einmal markieren!)
+
+
+📄 HAUPTSEITE (3 Dateien):
+──────────────────────────
+  ☐ index.html
+  ☐ style.css
+  ☐ script.js
+
+
+📝 TEST-SEITE (3 Dateien):
+──────────────────────────
+  ☐ tests.html
+  ☐ test-styles.css
+  ☐ test-engine.js
+
+
+📚 LEKTIONEN-SEITE (3 Dateien): ⭐ NEU!
+────────────────────────────────────────
+  ☐ lektionen.html
+  ☐ lesson-styles.css
+  ☐ lesson-engine.js
+
+
+📲 PWA-DATEIEN (2 Dateien):
+───────────────────────────
+  ☐ manifest.json
+  ☐ sw.js
+
+
+═══════════════════════════════════════════
+ALLE 11 DATEIEN GLEICHZEITIG MARKIEREN!
+DANN AUF NETLIFY ZIEHEN!
+═══════════════════════════════════════════
+
+
+🚫 NICHT HOCHLADEN:
+════════════════════
+
+Diese Dateien sind nur Dokumentation (für dich):
+
+  ❌ README.md
+  ❌ FEATURE_IDEAS.md
+  ❌ FINAL_SUMMARY.md
+  ❌ UPLOAD_ANLEITUNG.md
+  ❌ QUICK_START_MARIAMI.md
+  ❌ FINAL_CHECKLIST.md
+  ❌ START_HIER.txt
+  ❌ ALLES_FERTIG.md
+  ❌ GEORGIAN_FIXED.txt
+  ❌ BIS_MUTTERSPRACHLER_KOMPLETT.txt
+  ❌ FINALE_ÜBERSICHT.txt
+  ❌ UPLOAD_DIESE_11_DATEIEN.txt
+  ❌ Alle .txt und .md Dateien
+
+
+🔍 WIE ERKENNST DU DIE RICHTIGEN?
+════════════════════════════════════
+
+HOCHLADEN:
+  ✅ Endung .html
+  ✅ Endung .css
+  ✅ Endung .js
+  ✅ Endung .json
+
+NICHT HOCHLADEN:
+  ❌ Endung .md
+  ❌ Endung .txt
+  ❌ Mit Emoji im Namen
+
+
+📋 SCHRITT-FÜR-SCHRITT:
+════════════════════════
+
+SCHRITT 1: Dateien markieren
+  1. Öffne Mari-Ordner im Explorer
+  2. Klicke auf: index.html
+  3. Halte Strg gedrückt
+  4. Klicke zusätzlich auf:
+     - style.css
+     - script.js
+     - tests.html
+     - test-styles.css
+     - test-engine.js
+     - lektionen.html
+     - lesson-styles.css
+     - lesson-engine.js
+     - manifest.json
+     - sw.js
+  5. Alle 11 sind jetzt markiert (blau)
+
+SCHRITT 2: Auf Netlify ziehen
+  1. Öffne in Browser: app.netlify.com/drop
+  2. Ziehe die 11 markierten Dateien auf die Seite
+  3. Netlify zeigt: "Uploading..."
+
+SCHRITT 3: Warten
+  1. Warte 20-30 Sekunden
+  2. Netlify zeigt: "Success!"
+  3. Du bekommst eine URL
+
+SCHRITT 4: Testen
+  1. Öffne die URL
+  2. Teste Hauptseite
+  3. Klicke "Alle Lektionen (A1-C2)"
+  4. Klicke "Tests & C1 Prüfung"
+  5. Alles funktioniert! ✅
+
+SCHRITT 5: Mariami zeigen
+  1. URL kopieren
+  2. An Mariami schicken
+  3. Features erklären
+  4. 🇬🇪 Georgian aktivieren
+  5. Freude haben! 🎉
+
+
+⚠️ WICHTIG:
+════════════
+
+✅ ALLE 11 DATEIEN müssen hochgeladen werden
+✅ Zusammen, nicht einzeln
+✅ Im gleichen Upload-Vorgang
+✅ Netlify legt sie automatisch richtig ab
+
+❌ NICHT einzeln hochladen
+❌ NICHT .md/.txt Dateien hochladen
+❌ NICHT in Unterordner packen
+
+
+🎯 NACH DEM UPLOAD:
+════════════════════
+
+URL wird sein: https://[name].netlify.app
+
+3 Seiten erreichbar:
+  🏠 https://[name].netlify.app/index.html (oder nur /)
+  🎓 https://[name].netlify.app/tests.html
+  📚 https://[name].netlify.app/lektionen.html
+
+Alle verlinkt untereinander!
+Navigation funktioniert!
+Sprach-Einstellung geteilt!
+Dark Mode geteilt!
+
+
+💡 QUICK-TEST:
+═══════════════
+
+Nach Upload:
+  1. Hauptseite öffnen
+  2. Klicke 🇬🇪 → Prüfe Georgian
+  3. Klicke "Alle Lektionen"
+  4. Siehst du 31 Lektionen? ✅
+  5. Klicke "Tests"
+  6. Siehst du 4 Tests + C1-Prüfung? ✅
+  7. Ist Georgian noch aktiv? ✅
+  8. PERFEKT! 🎉
+
+
+📊 DATEI-GRÖSSEN:
+══════════════════
+
+index.html:        ~70 KB
+style.css:         ~130 KB
+script.js:         ~80 KB
+tests.html:        ~35 KB
+test-styles.css:   ~60 KB
+test-engine.js:    ~55 KB
+lektionen.html:    ~25 KB
+lesson-styles.css: ~25 KB
+lesson-engine.js:  ~15 KB
+manifest.json:     ~2 KB
+sw.js:             ~4 KB
+───────────────────────────
+GESAMT:            ~500 KB
+
+Ladezeit: ~2-3 Sekunden
+Perfekt! ⚡
+
+
+🌟 WAS MARIAMI BEKOMMT:
+════════════════════════
+
+📚 KOMPLETTER LERNPFAD:
+   A1 → A2 → B1 → B2 → C1 → C2
+   Vom Anfänger zum Muttersprachler!
+
+🎯 31 STRUKTURIERTE LEKTIONEN:
+   Jede mit Vokabeln, Grammatik, Beispielen
+
+🎓 PRÜFUNGSVORBEREITUNG:
+   4 Tests + komplette C1-Prüfung
+
+🌍 IN IHRER SPRACHE:
+   Alles auf Georgian verfügbar!
+
+💝 MIT DEINER LIEBE:
+   Widmungen, Zertifikate, Audio
+
+
+╔════════════════════════════════════════╗
+║                                        ║
+║   🎉 BEREIT ZUM UPLOAD! 🎉            ║
+║                                        ║
+║   11 DATEIEN MARKIEREN                 ║
+║   AUF NETLIFY ZIEHEN                   ║
+║   20 SEKUNDEN WARTEN                   ║
+║   FERTIG!                              ║
+║                                        ║
+║   DANN:                                ║
+║   → Mariami zeigen                     ║
+║   → Sie wird C2 erreichen!             ║
+║   → Wie ein Muttersprachler!           ║
+║                                        ║
+╚════════════════════════════════════════╝
+
+
+გამარჯვება! 🇬🇪
+Du schaffst C2! 💪
+Mit Liebe von Nico! 💝
+
+🚀 JETZT HOCHLADEN! 🚀
+

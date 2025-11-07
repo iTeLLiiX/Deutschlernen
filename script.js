@@ -101,7 +101,7 @@ const translations = {
         'c1-feat2': 'Musterprüfungen',
         'c1-feat3': 'Zeitmanagement',
         'c1-feat4': 'Bewertungskriterien',
-        'c1-open': 'C1 Bereich öffnen'
+        'c1-open': 'C1 Prüfung starten'
     },
     en: {
         // Navigation
@@ -197,7 +197,7 @@ const translations = {
         'c1-feat2': 'Practice Tests',
         'c1-feat3': 'Time Management',
         'c1-feat4': 'Grading Criteria',
-        'c1-open': 'Open C1 Area'
+        'c1-open': 'Start C1 Exam'
     },
     ka: {
         // Navigation
@@ -293,7 +293,7 @@ const translations = {
         'c1-feat2': 'სავარჯიშო ტესტები',
         'c1-feat3': 'დროის მართვა',
         'c1-feat4': 'შეფასების კრიტერიუმები',
-        'c1-open': 'C1 არეალის გახსნა'
+        'c1-open': 'C1 გამოცდის დაწყება'
     }
 };
 
