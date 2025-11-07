@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Deutsch-Lernplattform - Von A1 bis C1 mit interaktiven Lektionen">
+    <meta name="theme-color" content="#1a4a6e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Deutsch Meistern">
+    <title>Deutsch Meistern | Premium Lernplattform A1-C1</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">Deutsch Meistern</span>
+                        <span class="logo-subtitle">A1 bis C1</span>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                
+                <nav class="nav" id="mainNav">
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="de" title="Deutsch">
+                            🇩🇪
+                        </button>
+                        <button class="lang-btn" data-lang="en" title="English">
+                            🇬🇧
+                        </button>
+                        <button class="lang-btn" data-lang="ka" title="ქართული">
+                            🇬🇪
+                        </button>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button class="theme-toggle" id="themeToggle" title="Dark Mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    
+                    <a href="#vokabeln" class="nav-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span data-translate="nav-vocab">Vokabeln</span>
+                    </a>
+                    <a href="#grammatik" class="nav-link">
+                        <i class="fa-solid fa-language"></i>
+                        <span data-translate="nav-grammar">Grammatik</span>
+                    </a>
+                    <a href="#aussprache" class="nav-link">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <span data-translate="nav-pronunciation">Aussprache</span>
+                    </a>
+                    <a href="#uebungen" class="nav-link">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <span data-translate="nav-exercises">Übungen</span>
+                    </a>
+                    <a href="#flashcards" class="nav-link">
+                        <i class="fa-solid fa-clone"></i>
+                        <span data-translate="nav-flashcards">Karten</span>
+                    </a>
+                    <div class="user-progress">
+                        <i class="fa-solid fa-star"></i>
+                        <span id="totalPoints">0</span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-circle hero-circle-1"></div>
+            <div class="hero-circle hero-circle-2"></div>
+            <div class="hero-circle hero-circle-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-star"></i>
+                    <span data-translate="hero-badge">Premium Lernplattform</span>
+                </div>
+                <h1 class="hero-title"><span data-translate="hero-title">Meistern Sie Deutsch</span><br><span class="gradient-text" data-translate="hero-subtitle-span">Von A1 bis C1</span></h1>
+                <p class="hero-subtitle" data-translate="hero-desc">Strukturiertes, effizientes Lernen mit professioneller Unterstützung. Perfekt für die Vorbereitung auf die C1-Prüfung.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <i class="fa-solid fa-book-open"></i>
+                        <div class="stat-content">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label" data-translate="stat-vocab">Vokabeln</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <div class="stat-content">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label" data-translate="stat-lessons">Lektionen</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <div class="stat-content">
+                            <span class="stat-number">A1-C1</span>
+                            <span class="stat-label" data-translate="stat-levels">Alle Niveaus</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-features">
+                    <div class="feature-pill">
+                        <i class="fa-solid fa-check"></i>
+                        <span data-translate="feat-interactive">Interaktive Übungen</span>
+                    </div>
+                    <div class="feature-pill">
+                        <i class="fa-solid fa-check"></i>
+                        <span data-translate="feat-feedback">Sofortiges Feedback</span>
+                    </div>
+                    <div class="feature-pill">
+                        <i class="fa-solid fa-check"></i>
+                        <span data-translate="feat-tracking">Fortschrittstracking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Level Overview -->
+    <section class="level-overview">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label" data-translate="level-path">Ihr Lernweg</span>
+                <h2 class="section-title" data-translate="level-title">Vom Anfänger zum Profi</h2>
+                <p class="section-description" data-translate="level-desc">Folgen Sie unserem strukturierten Curriculum von grundlegenden Begrüßungen bis zu komplexen Diskussionen</p>
+            </div>
+
+            <div class="level-grid">
+                <div class="level-card level-a1">
+                    <div class="level-icon">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3>A1 - A2</h3>
+                    <p class="level-description" data-translate="level-a1-desc">Grundlagen</p>
+                    <ul class="level-topics">
+                        <li><i class="fa-solid fa-circle-check"></i> <span data-translate="level-a1-1">Begrüßungen & Vorstellungen</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <span data-translate="level-a1-2">Zahlen & Datum</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <span data-translate="level-a1-3">Familie & Alltag</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <span data-translate="level-a1-4">Einkaufen & Essen</span></li>
+                    </ul>
+                    <div class="level-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%" id="progressA1"></div>
+                        </div>
+                        <span class="progress-label" id="progressLabelA1"><span data-translate="progress-completed">0% abgeschlossen</span></span>
+                    </div>
+                </div>
+
+                <div class="level-card level-b1">
+                    <div class="level-icon">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3>B1 - B2</h3>
+                    <p class="level-description" data-translate="level-b1-desc">Mittelstufe</p>
+                    <ul class="level-topics">
+                        <li><i class="fa-solid fa-circle-check"></i> <span data-translate="level-b1-1">Arbeit & Beruf</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <span data-translate="level-b1-2">Meinungen äußern</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <span data-translate="level-b1-3">Komplexe Zeitformen</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <span data-translate="level-b1-4">Formelle Kommunikation</span></li>
+                    </ul>
+                    <div class="level-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%" id="progressB1"></div>
+                        </div>
+                        <span class="progress-label" id="progressLabelB1"><span data-translate="progress-completed">0% abgeschlossen</span></span>
+                    </div>
+                </div>
+
+                <div class="level-card level-c1">
+                    <div class="level-icon">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h3>C1</h3>
+                    <p class="level-description" data-translate="level-c1-desc">Fortgeschritten</p>
+                    <ul class="level-topics">
+                        <li><i class="fa-solid fa-circle-check"></i> <span data-translate="level-c1-1">Akademische Sprache</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <span data-translate="level-c1-2">Literatur & Kultur</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <span data-translate="level-c1-3">Debatten führen</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <span data-translate="level-c1-4">Prüfungsvorbereitung</span></li>
+                    </ul>
+                    <div class="level-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%" id="progressC1"></div>
+                        </div>
+                        <span class="progress-label" id="progressLabelC1"><span data-translate="progress-completed">0% abgeschlossen</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section section-alt">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-chart-line"></i> Statistiken</span>
+                <h2 class="section-title">Dein Lernfortschritt</h2>
+                <p class="section-description">Verfolge deine Erfolge und bleib motiviert</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #f7b267 0%, #ffc580 100%);">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="streakDays">0</h3>
+                        <p>Tage Streak</p>
+                    </div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <i class="fa-solid fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalExercises">0</h3>
+                        <p>Übungen absolviert</p>
+                    </div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #6ba7c6 0%, #5a96b5 100%);">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="vocabLearned">0</h3>
+                        <p>Vokabeln gelernt</p>
+                    </div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalMinutes">0</h3>
+                        <p>Minuten gelernt</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>Wöchentlicher Fortschritt</h3>
+                <canvas id="progressChart" width="400" height="200"></canvas>
+            </div>
+
+            <div class="achievements-section">
+                <h3><i class="fa-solid fa-trophy"></i> Errungenschaften</h3>
+                <div class="achievements-grid" id="achievementsList">
+                    <div class="achievement locked" data-achievement="first-word">
+                        <i class="fa-solid fa-star"></i>
+                        <span>Erstes Wort</span>
+                    </div>
+                    <div class="achievement locked" data-achievement="10-words">
+                        <i class="fa-solid fa-book"></i>
+                        <span>10 Vokabeln</span>
+                    </div>
+                    <div class="achievement locked" data-achievement="50-words">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>50 Vokabeln</span>
+                    </div>
+                    <div class="achievement locked" data-achievement="7-day-streak">
+                        <i class="fa-solid fa-fire"></i>
+                        <span>7 Tage Streak</span>
+                    </div>
+                    <div class="achievement locked" data-achievement="perfect-quiz">
+                        <i class="fa-solid fa-trophy"></i>
+                        <span>Perfektes Quiz</span>
+                    </div>
+                    <div class="achievement locked" data-achievement="100-points">
+                        <i class="fa-solid fa-crown"></i>
+                        <span>100 Punkte</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vokabeln Section -->
+    <section id="vokabeln" class="section">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-book"></i> Vokabeln</span>
+                <h2 class="section-title">Wortschatz aufbauen</h2>
+                <p class="section-description">Systematisch lernen mit kontextbezogenen Beispielen</p>
+            </div>
+
+            <!-- Search & Filter Bar -->
+            <div class="vocab-tools">
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="vocabSearch" class="search-input" placeholder="Vokabeln durchsuchen..." onkeyup="searchVocab()">
+                    <button class="search-clear" id="searchClear" onclick="clearSearch()" style="display: none;">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterVocab('all')" id="filterAll">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Alle</span>
+                    </button>
+                    <button class="filter-btn" onclick="filterVocab('favorites')" id="filterFavorites">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Favoriten</span>
+                        <span class="badge" id="favoritesCount">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Favoriten Section -->
+            <div id="favoritesSection" style="display: none;" class="favorites-section">
+                <div class="favorites-container">
+                    <div class="favorites-header">
+                        <h3><i class="fa-solid fa-heart"></i> Meine Favoriten</h3>
+                        <button class="btn btn-outline btn-sm" onclick="clearAllFavorites()">
+                            <i class="fa-solid fa-trash"></i>
+                            <span>Alle löschen</span>
+                        </button>
+                    </div>
+                    <div id="favoritesList" class="vocab-grid">
+                        <div class="empty-state">
+                            <i class="fa-regular fa-heart"></i>
+                            <p>Noch keine Favoriten vorhanden</p>
+                            <small>Klicke auf das Herz bei Vokabeln, um sie hier zu speichern</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lektion A1.1 - Begrüßungen -->
+            <div class="lesson-card featured-lesson">
+                <div class="lesson-header">
+                    <div class="lesson-title-group">
+                        <span class="lesson-level">A1.1</span>
+                        <h3>Wichtige Begrüßungen & Vorstellungen</h3>
+                    </div>
+                    <div class="lesson-meta">
+                        <span class="lesson-duration"><i class="fa-regular fa-clock"></i> 15 Min</span>
+                        <span class="lesson-words"><i class="fa-solid fa-book"></i> 12 Wörter</span>
+                    </div>
+                </div>
+
+                <div class="info-box info-box-goal">
+                    <div class="info-box-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <div class="info-box-content">
+                        <h4>Lernziel</h4>
+                        <p>Lernen Sie die wichtigsten Begrüßungen und Vorstellungsformeln für erste Konversationen. Diese Grundlagen ermöglichen höfliche Umgangsformen in Alltagssituationen.</p>
+                    </div>
+                </div>
+
+                <div class="vocab-section">
+                    <h4 class="vocab-section-title"><i class="fa-solid fa-comments"></i> Begrüßungen</h4>
+                    <div class="vocab-grid">
+                        <div class="vocab-card" data-word="Hallo">
+                            <div class="vocab-word">
+                                <span class="word-german">Hallo</span>
+                                <div class="vocab-actions">
+                                    <button class="audio-btn" onclick="speakWord('Hallo')" title="Aussprache anhören">
+                                        <i class="fa-solid fa-volume-high"></i>
+                                    </button>
+                                    <button class="favorite-btn" onclick="toggleFavorite('Hallo')" title="Zu Favoriten hinzufügen">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="vocab-translation">
+                                <span class="translation-en">Hello</span>
+                                <span class="translation-ka">გამარჯობა (gamarjoba)</span>
+                            </div>
+                            <div class="vocab-type">
+                                <span class="type-badge type-interjektion">Interjektion</span>
+                            </div>
+                            <div class="vocab-example">
+                                <i class="fa-solid fa-quote-left"></i>
+                                <p>Hallo! Wie geht es dir?</p>
+                            </div>
+                        </div>
+
+                        <div class="vocab-card">
+                            <div class="vocab-word">
+                                <span class="word-german">Guten Morgen</span>
+                                <button class="audio-btn" onclick="speakWord('Guten Morgen')" title="Aussprache anhören">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                            </div>
+                            <div class="vocab-translation">
+                                <span class="translation-en">Good morning</span>
+                                <span class="translation-ka">დილა მშვიდობისა (dila mshvidobisa)</span>
+                            </div>
+                            <div class="vocab-type">
+                                <span class="type-badge type-ausdruck">Ausdruck</span>
+                            </div>
+                            <div class="vocab-example">
+                                <i class="fa-solid fa-quote-left"></i>
+                                <p>Guten Morgen! Haben Sie gut geschlafen?</p>
+                            </div>
+                        </div>
+
+                        <div class="vocab-card">
+                            <div class="vocab-word">
+                                <span class="word-german">Guten Tag</span>
+                                <button class="audio-btn" onclick="speakWord('Guten Tag')" title="Aussprache anhören">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                            </div>
+                            <div class="vocab-translation">
+                                <span class="translation-en">Good day / Hello</span>
+                                <span class="translation-ka">გაგიმარჯოს (gagimarjos)</span>
+                            </div>
+                            <div class="vocab-type">
+                                <span class="type-badge type-ausdruck">Ausdruck</span>
+                            </div>
+                            <div class="vocab-example">
+                                <i class="fa-solid fa-quote-left"></i>
+                                <p>Guten Tag, Frau Müller!</p>
+                            </div>
+                        </div>
+
+                        <div class="vocab-card">
+                            <div class="vocab-word">
+                                <span class="word-german">Guten Abend</span>
+                                <button class="audio-btn" onclick="speakWord('Guten Abend')" title="Aussprache anhören">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                            </div>
+                            <div class="vocab-translation">
+                                <span class="translation-en">Good evening</span>
+                                <span class="translation-ka">საღამო მშვიდობისა (saghamo mshvidobisa)</span>
+                            </div>
+                            <div class="vocab-type">
+                                <span class="type-badge type-ausdruck">Ausdruck</span>
+                            </div>
+                            <div class="vocab-example">
+                                <i class="fa-solid fa-quote-left"></i>
+                                <p>Guten Abend! Schön, Sie zu sehen.</p>
+                            </div>
+                        </div>
+
+                        <div class="vocab-card">
+                            <div class="vocab-word">
+                                <span class="word-german">Danke</span>
+                                <button class="audio-btn" onclick="speakWord('Danke')" title="Aussprache anhören">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                            </div>
+                            <div class="vocab-translation">
+                                <span class="translation-en">Thank you</span>
+                                <span class="translation-ka">მადლობა (madloba)</span>
+                            </div>
+                            <div class="vocab-type">
+                                <span class="type-badge type-interjektion">Interjektion</span>
+                            </div>
+                            <div class="vocab-example">
+                                <i class="fa-solid fa-quote-left"></i>
+                                <p>Danke schön für Ihre Hilfe!</p>
+                            </div>
+                        </div>
+
+                        <div class="vocab-card">
+                            <div class="vocab-word">
+                                <span class="word-german">Bitte</span>
+                                <button class="audio-btn" onclick="speakWord('Bitte')" title="Aussprache anhören">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                            </div>
+                            <div class="vocab-translation">
+                                <span class="translation-en">Please / You're welcome</span>
+                                <span class="translation-ka">გთხოვთ (gtkhovt)</span>
+                            </div>
+                            <div class="vocab-type">
+                                <span class="type-badge type-interjektion">Interjektion</span>
+                            </div>
+                            <div class="vocab-example">
+                                <i class="fa-solid fa-quote-left"></i>
+                                <p>Bitte, gern geschehen!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-tips">
+                    <div class="tip-box tip-pronunciation">
+                        <div class="tip-icon">
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                        <div class="tip-content">
+                            <h5>Aussprache-Tipp</h5>
+                            <p>Das "ch" in "ich" wird weich ausgesprochen. Klicken Sie auf die Audio-Buttons, um die korrekte Aussprache zu hören.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-box tip-culture">
+                        <div class="tip-icon">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <div class="tip-content">
+                            <h5>Kultureller Hinweis</h5>
+                            <p>In Deutschland ist die Unterscheidung zwischen "du" (informell) und "Sie" (formell) sehr wichtig. Verwenden Sie "Sie" bei Personen, die Sie nicht gut kennen.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-box tip-practice">
+                        <div class="tip-icon">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <div class="tip-content">
+                            <h5>Übungstipp</h5>
+                            <p>Üben Sie diese Begrüßungen täglich. Versuchen Sie, sie in realen Situationen anzuwenden!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lektion A1.2 - Familie -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <div class="lesson-title-group">
+                        <span class="lesson-level">A1.2</span>
+                        <h3>Familie & Beziehungen</h3>
+                    </div>
+                    <div class="lesson-meta">
+                        <span class="lesson-duration"><i class="fa-regular fa-clock"></i> 20 Min</span>
+                        <span class="lesson-words"><i class="fa-solid fa-book"></i> 18 Wörter</span>
+                    </div>
+                </div>
+
+                <div class="info-box info-box-goal">
+                    <div class="info-box-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <div class="info-box-content">
+                        <h4>Lernziel</h4>
+                        <p>Lernen Sie Familienmitglieder und Beziehungen zu beschreiben. Verstehen Sie die Artikel und Pluralformen.</p>
+                    </div>
+                </div>
+
+                <div class="vocab-table-wrapper">
+                    <table class="vocab-table">
+                        <thead>
+                            <tr>
+                                <th>Deutsch</th>
+                                <th>Artikel</th>
+                                <th>Plural</th>
+                                <th>English</th>
+                                <th>ქართული</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="vocab-row">
+                                <td>
+                                    <div class="table-word">
+                                        <span class="word-german">Mutter</span>
+                                        <button class="audio-btn audio-btn-small" onclick="speakWord('Mutter')">
+                                            <i class="fa-solid fa-volume-high"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td><span class="artikel-feminin">die</span></td>
+                                <td>Mütter</td>
+                                <td>mother</td>
+                                <td>დედა (deda)</td>
+                            </tr>
+                            <tr class="vocab-row">
+                                <td>
+                                    <div class="table-word">
+                                        <span class="word-german">Vater</span>
+                                        <button class="audio-btn audio-btn-small" onclick="speakWord('Vater')">
+                                            <i class="fa-solid fa-volume-high"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td><span class="artikel-maskulin">der</span></td>
+                                <td>Väter</td>
+                                <td>father</td>
+                                <td>მამა (mama)</td>
+                            </tr>
+                            <tr class="vocab-row">
+                                <td>
+                                    <div class="table-word">
+                                        <span class="word-german">Kind</span>
+                                        <button class="audio-btn audio-btn-small" onclick="speakWord('Kind')">
+                                            <i class="fa-solid fa-volume-high"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td><span class="artikel-neutral">das</span></td>
+                                <td>Kinder</td>
+                                <td>child</td>
+                                <td>ბავშვი (bavshvi)</td>
+                            </tr>
+                            <tr class="vocab-row">
+                                <td>
+                                    <div class="table-word">
+                                        <span class="word-german">Bruder</span>
+                                        <button class="audio-btn audio-btn-small" onclick="speakWord('Bruder')">
+                                            <i class="fa-solid fa-volume-high"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td><span class="artikel-maskulin">der</span></td>
+                                <td>Brüder</td>
+                                <td>brother</td>
+                                <td>ძმა (dzma)</td>
+                            </tr>
+                            <tr class="vocab-row">
+                                <td>
+                                    <div class="table-word">
+                                        <span class="word-german">Schwester</span>
+                                        <button class="audio-btn audio-btn-small" onclick="speakWord('Schwester')">
+                                            <i class="fa-solid fa-volume-high"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td><span class="artikel-feminin">die</span></td>
+                                <td>Schwestern</td>
+                                <td>sister</td>
+                                <td>და (da)</td>
+                            </tr>
+                            <tr class="vocab-row">
+                                <td>
+                                    <div class="table-word">
+                                        <span class="word-german">Großmutter</span>
+                                        <button class="audio-btn audio-btn-small" onclick="speakWord('Großmutter')">
+                                            <i class="fa-solid fa-volume-high"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td><span class="artikel-feminin">die</span></td>
+                                <td>Großmütter</td>
+                                <td>grandmother</td>
+                                <td>ბებია (bebia)</td>
+                            </tr>
+                            <tr class="vocab-row">
+                                <td>
+                                    <div class="table-word">
+                                        <span class="word-german">Großvater</span>
+                                        <button class="audio-btn audio-btn-small" onclick="speakWord('Großvater')">
+                                            <i class="fa-solid fa-volume-high"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td><span class="artikel-maskulin">der</span></td>
+                                <td>Großväter</td>
+                                <td>grandfather</td>
+                                <td>ბაბუა (babua)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grammatik Section -->
+    <section id="grammatik" class="section section-alt">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-language"></i> Grammatik</span>
+                <h2 class="section-title">Grammatik meistern</h2>
+                <p class="section-description">Von Artikeln bis zu komplexen Satzstrukturen</p>
+            </div>
+
+            <!-- Artikel Lektion -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <div class="lesson-title-group">
+                        <span class="lesson-level">A1</span>
+                        <h3>Artikel: der, die, das</h3>
+                    </div>
+                    <div class="lesson-meta">
+                        <span class="lesson-duration"><i class="fa-regular fa-clock"></i> 25 Min</span>
+                    </div>
+                </div>
+
+                <div class="info-box info-box-goal">
+                    <div class="info-box-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <div class="info-box-content">
+                        <h4>Lernziel</h4>
+                        <p>Verstehen Sie die drei grammatischen Geschlechter im Deutschen und lernen Sie, Artikel korrekt zu verwenden.</p>
+                    </div>
+                </div>
+
+                <div class="grammar-content">
+                    <div class="grammar-section">
+                        <h4><i class="fa-solid fa-mars"></i> Maskulin - der</h4>
+                        <div class="article-explanation">
+                            <div class="article-box article-maskulin">
+                                <span class="article-large">der</span>
+                                <p class="article-desc">Männlich / Masculine / მამრობითი</p>
+                            </div>
+                            <div class="article-examples">
+                                <div class="example-item">
+                                    <span class="artikel-maskulin">der</span>
+                                    <span class="example-word">Mann</span>
+                                    <span class="example-translation">(the man)</span>
+                                </div>
+                                <div class="example-item">
+                                    <span class="artikel-maskulin">der</span>
+                                    <span class="example-word">Tisch</span>
+                                    <span class="example-translation">(the table)</span>
+                                </div>
+                                <div class="example-item">
+                                    <span class="artikel-maskulin">der</span>
+                                    <span class="example-word">Tag</span>
+                                    <span class="example-translation">(the day)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grammar-section">
+                        <h4><i class="fa-solid fa-venus"></i> Feminin - die</h4>
+                        <div class="article-explanation">
+                            <div class="article-box article-feminin">
+                                <span class="article-large">die</span>
+                                <p class="article-desc">Weiblich / Feminine / მდედრობითი</p>
+                            </div>
+                            <div class="article-examples">
+                                <div class="example-item">
+                                    <span class="artikel-feminin">die</span>
+                                    <span class="example-word">Frau</span>
+                                    <span class="example-translation">(the woman)</span>
+                                </div>
+                                <div class="example-item">
+                                    <span class="artikel-feminin">die</span>
+                                    <span class="example-word">Zeit</span>
+                                    <span class="example-translation">(the time)</span>
+                                </div>
+                                <div class="example-item">
+                                    <span class="artikel-feminin">die</span>
+                                    <span class="example-word">Schule</span>
+                                    <span class="example-translation">(the school)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grammar-section">
+                        <h4><i class="fa-solid fa-genderless"></i> Neutral - das</h4>
+                        <div class="article-explanation">
+                            <div class="article-box article-neutral">
+                                <span class="article-large">das</span>
+                                <p class="article-desc">Sächlich / Neuter / საშუალო</p>
+                            </div>
+                            <div class="article-examples">
+                                <div class="example-item">
+                                    <span class="artikel-neutral">das</span>
+                                    <span class="example-word">Kind</span>
+                                    <span class="example-translation">(the child)</span>
+                                </div>
+                                <div class="example-item">
+                                    <span class="artikel-neutral">das</span>
+                                    <span class="example-word">Haus</span>
+                                    <span class="example-translation">(the house)</span>
+                                </div>
+                                <div class="example-item">
+                                    <span class="artikel-neutral">das</span>
+                                    <span class="example-word">Buch</span>
+                                    <span class="example-translation">(the book)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-tips">
+                    <div class="tip-box tip-practice">
+                        <div class="tip-icon">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="tip-content">
+                            <h5>Pro-Tipp</h5>
+                            <p>Lernen Sie neue Wörter IMMER mit ihrem Artikel! Nicht "Tisch", sondern "der Tisch". Dies hilft Ihnen, das Geschlecht automatisch zu erinnern.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aussprache Section -->
+    <section id="aussprache" class="section">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-volume-high"></i> Aussprache</span>
+                <h2 class="section-title">Richtig aussprechen</h2>
+                <p class="section-description">Meistern Sie die deutsche Aussprache mit Audio-Beispielen</p>
+            </div>
+
+            <div class="pronunciation-grid">
+                <div class="pronunciation-card">
+                    <div class="pronunciation-header">
+                        <h3>Das Deutsche "CH"</h3>
+                        <button class="audio-btn" onclick="speakWord('ich auch')">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                    </div>
+                    <p class="pronunciation-desc">Es gibt zwei Varianten des "ch"-Lautes im Deutschen</p>
+                    <div class="pronunciation-examples">
+                        <div class="pronunciation-example">
+                            <span class="example-word">ich</span>
+                            <span class="example-phonetic">[ɪç]</span>
+                            <button class="audio-btn audio-btn-small" onclick="speakWord('ich')">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                        <div class="pronunciation-example">
+                            <span class="example-word">auch</span>
+                            <span class="example-phonetic">[aʊx]</span>
+                            <button class="audio-btn audio-btn-small" onclick="speakWord('auch')">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pronunciation-card">
+                    <div class="pronunciation-header">
+                        <h3>Umlaute: ä, ö, ü</h3>
+                        <button class="audio-btn" onclick="speakWord('schön über')">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                    </div>
+                    <p class="pronunciation-desc">Spezielle Vokale, die es im Englischen nicht gibt</p>
+                    <div class="pronunciation-examples">
+                        <div class="pronunciation-example">
+                            <span class="example-word">schön</span>
+                            <span class="example-phonetic">[ʃøːn]</span>
+                            <button class="audio-btn audio-btn-small" onclick="speakWord('schön')">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                        <div class="pronunciation-example">
+                            <span class="example-word">über</span>
+                            <span class="example-phonetic">[ˈyːbɐ]</span>
+                            <button class="audio-btn audio-btn-small" onclick="speakWord('über')">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pronunciation-card">
+                    <div class="pronunciation-header">
+                        <h3>Das "R"</h3>
+                        <button class="audio-btn" onclick="speakWord('rot Bruder')">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                    </div>
+                    <p class="pronunciation-desc">Im Deutschen wird das "R" im Rachen gesprochen</p>
+                    <div class="pronunciation-examples">
+                        <div class="pronunciation-example">
+                            <span class="example-word">rot</span>
+                            <span class="example-phonetic">[ʁoːt]</span>
+                            <button class="audio-btn audio-btn-small" onclick="speakWord('rot')">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                        <div class="pronunciation-example">
+                            <span class="example-word">Bruder</span>
+                            <span class="example-phonetic">[ˈbʁuːdɐ]</span>
+                            <button class="audio-btn audio-btn-small" onclick="speakWord('Bruder')">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Übungen Section -->
+    <section id="uebungen" class="section section-alt">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-pen-to-square"></i> Übungen</span>
+                <h2 class="section-title">Wissen anwenden</h2>
+                <p class="section-description">Interaktive Übungen für alle Niveaus</p>
+            </div>
+
+            <!-- Artikel-Übung -->
+            <div class="exercise-container" id="articleExercise">
+                <div class="exercise-header-full">
+                    <div class="exercise-title-group">
+                        <div class="exercise-icon-small">
+                            <i class="fa-solid fa-shuffle"></i>
+                        </div>
+                        <div>
+                            <h3>Artikel zuordnen</h3>
+                            <p>Wähle den richtigen Artikel für jedes Wort</p>
+                        </div>
+                    </div>
+                    <div class="exercise-score">
+                        <span>Punkte: <strong id="articleScore">0</strong> / 10</span>
+                    </div>
+                </div>
+
+                <div class="exercise-content">
+                    <div class="article-quiz">
+                        <div class="quiz-question" id="articleQuestion">
+                            <h4>Welcher Artikel passt?</h4>
+                            <div class="quiz-word" id="quizWord">Haus</div>
+                        </div>
+                        <div class="quiz-options">
+                            <button class="quiz-option" onclick="checkArticle('der')">
+                                <span class="artikel-maskulin">der</span>
+                            </button>
+                            <button class="quiz-option" onclick="checkArticle('die')">
+                                <span class="artikel-feminin">die</span>
+                            </button>
+                            <button class="quiz-option" onclick="checkArticle('das')">
+                                <span class="artikel-neutral">das</span>
+                            </button>
+                        </div>
+                        <div class="quiz-feedback" id="articleFeedback"></div>
+                        <div class="quiz-progress">
+                            <span>Frage <span id="articleQuestionNum">1</span> von 10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lückentext-Übung -->
+            <div class="exercise-container" id="fillBlankExercise">
+                <div class="exercise-header-full">
+                    <div class="exercise-title-group">
+                        <div class="exercise-icon-small">
+                            <i class="fa-solid fa-spell-check"></i>
+                        </div>
+                        <div>
+                            <h3>Lückentext: Begrüßungen</h3>
+                            <p>Fülle die fehlenden Wörter ein</p>
+                        </div>
+                    </div>
+                    <div class="exercise-score">
+                        <span>Punkte: <strong id="fillBlankScore">0</strong> / 5</span>
+                    </div>
+                </div>
+
+                <div class="exercise-content">
+                    <div class="fill-blank-exercise">
+                        <div class="conversation-box">
+                            <div class="conversation-line">
+                                <strong>Person A:</strong> <span id="blank1" class="blank-input" contenteditable="true" data-answer="Hallo">_____</span>, wie geht es dir?
+                            </div>
+                            <div class="conversation-line">
+                                <strong>Person B:</strong> <span id="blank2" class="blank-input" contenteditable="true" data-answer="Danke">_____</span>, gut! Und dir?
+                            </div>
+                            <div class="conversation-line">
+                                <strong>Person A:</strong> Auch gut, <span id="blank3" class="blank-input" contenteditable="true" data-answer="danke">_____</span>.
+                            </div>
+                            <div class="conversation-line">
+                                <strong>Person B:</strong> <span id="blank4" class="blank-input" contenteditable="true" data-answer="Auf Wiedersehen">_____</span>!
+                            </div>
+                            <div class="conversation-line">
+                                <strong>Person A:</strong> <span id="blank5" class="blank-input" contenteditable="true" data-answer="Tschüss">_____</span>!
+                            </div>
+                        </div>
+                        <div class="word-bank">
+                            <h5>Wortbank:</h5>
+                            <div class="word-chips">
+                                <span class="word-chip">Hallo</span>
+                                <span class="word-chip">Danke</span>
+                                <span class="word-chip">danke</span>
+                                <span class="word-chip">Auf Wiedersehen</span>
+                                <span class="word-chip">Tschüss</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="checkFillBlanks()">
+                            <i class="fa-solid fa-check"></i>
+                            Antworten prüfen
+                        </button>
+                        <div class="quiz-feedback" id="fillBlankFeedback"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multiple Choice Quiz -->
+            <div class="exercise-container" id="multipleChoiceExercise">
+                <div class="exercise-header-full">
+                    <div class="exercise-title-group">
+                        <div class="exercise-icon-small">
+                            <i class="fa-solid fa-circle-question"></i>
+                        </div>
+                        <div>
+                            <h3>Grammatik-Quiz</h3>
+                            <p>Teste dein Wissen über deutsche Grammatik</p>
+                        </div>
+                    </div>
+                    <div class="exercise-score">
+                        <span>Punkte: <strong id="quizScore">0</strong> / 5</span>
+                    </div>
+                </div>
+
+                <div class="exercise-content">
+                    <div class="multiple-choice-quiz">
+                        <div class="quiz-question-box">
+                            <h4 id="mcQuestion">Wie sagt man "Good morning" auf Deutsch?</h4>
+                            <div class="mc-options" id="mcOptions">
+                                <button class="mc-option" onclick="checkMCAnswer(0)">
+                                    <span class="option-letter">A</span>
+                                    <span class="option-text">Guten Abend</span>
+                                </button>
+                                <button class="mc-option" onclick="checkMCAnswer(1)">
+                                    <span class="option-letter">B</span>
+                                    <span class="option-text">Guten Morgen</span>
+                                </button>
+                                <button class="mc-option" onclick="checkMCAnswer(2)">
+                                    <span class="option-letter">C</span>
+                                    <span class="option-text">Gute Nacht</span>
+                                </button>
+                                <button class="mc-option" onclick="checkMCAnswer(3)">
+                                    <span class="option-letter">D</span>
+                                    <span class="option-text">Guten Tag</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="quiz-feedback" id="mcFeedback"></div>
+                        <div class="quiz-progress">
+                            <span>Frage <span id="mcQuestionNum">1</span> von 5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weitere Übungen -->
+            <div class="exercises-grid">
+                <div class="exercise-card">
+                    <div class="exercise-icon">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3>Dialog vervollständigen</h3>
+                    <p>Setze die Konversation fort</p>
+                    <div class="exercise-meta">
+                        <span><i class="fa-solid fa-signal"></i> B1-C1</span>
+                        <span><i class="fa-solid fa-list"></i> 30+ Dialoge</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="alert('Weitere Übungen kommen bald!')">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Bald verfügbar
+                    </button>
+                </div>
+
+                <div class="exercise-card">
+                    <div class="exercise-icon">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                    <h3>Aussprache-Training</h3>
+                    <p>Übe schwierige Laute</p>
+                    <div class="exercise-meta">
+                        <span><i class="fa-solid fa-signal"></i> A1-C1</span>
+                        <span><i class="fa-solid fa-list"></i> 200+ Wörter</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="alert('Weitere Übungen kommen bald!')">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Bald verfügbar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flashcards Section -->
+    <section id="flashcards" class="section">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-clone"></i> <span data-translate="flashcards-title">Lernkarten</span></span>
+                <h2 class="section-title" data-translate="flashcards-heading">Schnell wiederholen</h2>
+                <p class="section-description" data-translate="flashcards-desc">Effektives Lernen mit digitalen Karteikarten</p>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard-controls">
+                    <button class="btn btn-outline" onclick="previousFlashcard()">
+                        <i class="fa-solid fa-chevron-left"></i>
+                        <span data-translate="previous">Zurück</span>
+                    </button>
+                    <span class="flashcard-counter">
+                        <span id="currentCard">1</span> / <span id="totalCards">10</span>
+                    </span>
+                    <button class="btn btn-outline" onclick="nextFlashcard()">
+                        <span data-translate="next">Weiter</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="flashcard" id="flashcard" onclick="flipFlashcard()">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <div class="flashcard-label" data-translate="flashcard-german">Deutsch</div>
+                            <div class="flashcard-content" id="flashcardFront">Hallo</div>
+                            <div class="flashcard-hint" data-translate="click-to-flip">Klicken zum Umdrehen</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="flashcard-label" data-translate="flashcard-translation">Übersetzung</div>
+                            <div class="flashcard-content">
+                                <div class="translation-item">🇬🇧 Hello</div>
+                                <div class="translation-item">🇬🇪 გამარჯობა (gamarjoba)</div>
+                            </div>
+                            <button class="audio-btn" onclick="event.stopPropagation(); speakWord(document.getElementById('flashcardFront').textContent)">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-actions">
+                    <button class="flashcard-action-btn know" onclick="markAsKnown()">
+                        <i class="fa-solid fa-check"></i>
+                        <span data-translate="i-know">Kann ich</span>
+                    </button>
+                    <button class="flashcard-action-btn shuffle" onclick="shuffleFlashcards()">
+                        <i class="fa-solid fa-shuffle"></i>
+                        <span data-translate="shuffle">Mischen</span>
+                    </button>
+                    <button class="flashcard-action-btn dontknow" onclick="markAsUnknown()">
+                        <i class="fa-solid fa-times"></i>
+                        <span data-translate="i-dont-know">Noch üben</span>
+                    </button>
+                </div>
+
+                <div class="flashcard-progress-bar">
+                    <div class="progress-segment known" id="knownProgress" style="width: 0%"></div>
+                    <div class="progress-segment unknown" id="unknownProgress" style="width: 0%"></div>
+                </div>
+                <div class="flashcard-stats">
+                    <span class="stat-item stat-known">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span data-translate="known">Bekannt:</span> <strong id="knownCount">0</strong>
+                    </span>
+                    <span class="stat-item stat-unknown">
+                        <i class="fa-solid fa-times-circle"></i>
+                        <span data-translate="to-review">Zu üben:</span> <strong id="unknownCount">10</strong>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voice Recording Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-microphone"></i> <span data-translate="voice-title">Aussprache üben</span></span>
+                <h2 class="section-title" data-translate="voice-heading">Nimm deine Stimme auf</h2>
+                <p class="section-description" data-translate="voice-desc">Vergleiche deine Aussprache mit der korrekten Aussprache</p>
+            </div>
+
+            <div class="voice-recorder-container">
+                <div class="voice-word-display">
+                    <h3 data-translate="practice-word">Übe dieses Wort:</h3>
+                    <div class="practice-word" id="practiceWord">Guten Morgen</div>
+                    <button class="btn btn-secondary" onclick="speakWord(document.getElementById('practiceWord').textContent)">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <span data-translate="listen">Anhören</span>
+                    </button>
+                </div>
+
+                <div class="voice-recorder">
+                    <div class="recorder-visual" id="recorderVisual">
+                        <div class="recording-wave"></div>
+                        <div class="recording-wave"></div>
+                        <div class="recording-wave"></div>
+                        <div class="recording-wave"></div>
+                        <div class="recording-wave"></div>
+                    </div>
+
+                    <button class="record-btn" id="recordBtn" onclick="toggleRecording()">
+                        <i class="fa-solid fa-microphone"></i>
+                        <span data-translate="start-recording">Aufnahme starten</span>
+                    </button>
+
+                    <div class="recording-status" id="recordingStatus"></div>
+
+                    <div class="recorded-audio" id="recordedAudioContainer" style="display: none;">
+                        <p data-translate="your-recording">Deine Aufnahme:</p>
+                        <audio id="recordedAudio" controls></audio>
+                        <div class="recording-actions">
+                            <button class="btn btn-outline" onclick="deleteRecording()">
+                                <i class="fa-solid fa-trash"></i>
+                                <span data-translate="delete">Löschen</span>
+                            </button>
+                            <button class="btn btn-primary" onclick="nextPracticeWord()">
+                                <i class="fa-solid fa-arrow-right"></i>
+                                <span data-translate="next-word">Nächstes Wort</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="voice-tips">
+                    <div class="tip-card">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <p data-translate="tip-1">Sprich langsam und deutlich</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fa-solid fa-headphones"></i>
+                        <p data-translate="tip-2">Höre zuerst das Original</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fa-solid fa-repeat"></i>
+                        <p data-translate="tip-3">Wiederhole mehrmals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Audio Upload Section -->
+    <section class="section custom-audio-section">
+        <div class="container">
+            <div class="custom-audio-container">
+                <div class="custom-audio-header">
+                    <i class="fa-solid fa-heart"></i>
+                    <h3 data-translate="custom-audio-title">Persönliche Audio-Hilfe</h3>
+                </div>
+                <p data-translate="custom-audio-desc">Lade eigene Audio-Dateien hoch, um mit deiner Stimme zu lernen!</p>
+                
+                <div class="upload-area" id="uploadArea">
+                    <i class="fa-solid fa-cloud-upload"></i>
+                    <p data-translate="upload-drag">Ziehe Audio-Dateien hierher oder klicke zum Hochladen</p>
+                    <p class="upload-formats">MP3, WAV, OGG</p>
+                    <input type="file" id="audioUpload" accept="audio/*" multiple style="display: none;">
+                    <button class="btn btn-primary" onclick="document.getElementById('audioUpload').click()">
+                        <i class="fa-solid fa-upload"></i>
+                        <span data-translate="choose-files">Dateien auswählen</span>
+                    </button>
+                </div>
+
+                <div class="custom-audio-list" id="customAudioList"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- C1 Preparation Section -->
+    <section class="c1-prep">
+        <div class="container">
+            <div class="c1-prep-content">
+                <div class="c1-prep-text">
+                    <span class="section-label"><i class="fa-solid fa-trophy"></i> <span data-translate="c1-prep">C1 Vorbereitung</span></span>
+                    <h2 data-translate="c1-ready">Bereit für die C1-Prüfung?</h2>
+                    <p data-translate="c1-desc">Gezieltes Training für alle Prüfungsteile: Leseverstehen, Hörverstehen, Schriftlicher Ausdruck und Mündlicher Ausdruck</p>
+                    <ul class="c1-features">
+                        <li><i class="fa-solid fa-check-circle"></i> <span data-translate="c1-feat1">Prüfungsstrategien</span></li>
+                        <li><i class="fa-solid fa-check-circle"></i> <span data-translate="c1-feat2">Musterprüfungen</span></li>
+                        <li><i class="fa-solid fa-check-circle"></i> <span data-translate="c1-feat3">Zeitmanagement</span></li>
+                        <li><i class="fa-solid fa-check-circle"></i> <span data-translate="c1-feat4">Bewertungskriterien</span></li>
+                    </ul>
+                    <button class="btn btn-primary btn-large" onclick="alert('C1-Bereich wird bald freigeschaltet!')">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span data-translate="c1-open">C1 Bereich öffnen</span>
+                    </button>
+                </div>
+                <div class="c1-prep-visual">
+                    <div class="c1-badge">
+                        <i class="fa-solid fa-award"></i>
+                        <span>C1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-title">Deutsch Meistern</span>
+                            <span class="logo-subtitle">A1 bis C1</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">Ihre professionelle Plattform für strukturiertes Deutschlernen. Von den ersten Worten bis zur C1-Prüfung.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Lernbereiche</h4>
+                    <ul class="footer-links">
+                        <li><a href="#vokabeln"><i class="fa-solid fa-book"></i> Vokabeln</a></li>
+                        <li><a href="#grammatik"><i class="fa-solid fa-language"></i> Grammatik</a></li>
+                        <li><a href="#aussprache"><i class="fa-solid fa-volume-high"></i> Aussprache</a></li>
+                        <li><a href="#uebungen"><i class="fa-solid fa-pen-to-square"></i> Übungen</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Niveaus</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fa-solid fa-seedling"></i> A1 - A2 Grundlagen</a></li>
+                        <li><a href="#"><i class="fa-solid fa-leaf"></i> B1 - B2 Mittelstufe</a></li>
+                        <li><a href="#"><i class="fa-solid fa-crown"></i> C1 Fortgeschritten</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <ul class="footer-links">
+                        <li><i class="fa-solid fa-envelope"></i> kontakt@deutschmeistern.de</li>
+                        <li><i class="fa-solid fa-globe"></i> www.deutschmeistern.de</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Personal Dedication -->
+            <div class="dedication-section">
+                <div class="dedication-content">
+                    <i class="fa-solid fa-heart dedication-heart"></i>
+                    <h3 class="dedication-title">Für Mariami 🇬🇪</h3>
+                    <p class="dedication-text">
+                        Diese Lernplattform wurde mit viel Liebe und Sorgfalt für dich erstellt.<br>
+                        Möge sie dir helfen, deine Träume in Deutschland zu verwirklichen.<br>
+                        <strong>Du schaffst das! 💪</strong>
+                    </p>
+                    <p class="dedication-signature">
+                        Mit Liebe erstellt von Nico 💝<br>
+                        <span class="dedication-date">November 2025</span>
+                    </p>
+                    <div class="dedication-quote">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <p>"გამარჯვება მიეკუთვნება იმას, ვინც არასდროს ჩერდება!"</p>
+                        <p class="quote-translation">"Der Erfolg gehört denen, die niemals aufgeben!"</p>
+                        <i class="fa-solid fa-quote-right"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Deutsch Meistern. Alle Rechte vorbehalten.</p>
+                <p class="footer-love">Erstellt mit <i class="fa-solid fa-heart"></i> von Nico für Mariami</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Chart.js for Statistics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('✅ Service Worker registered!', reg))
+                    .catch(err => console.log('❌ Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>
