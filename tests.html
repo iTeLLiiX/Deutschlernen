@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests & Prüfungen | Deutsch Meistern</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="test-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">Deutsch Meistern</span>
+                        <span class="logo-subtitle">Tests & Prüfungen</span>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">
+                        <i class="fa-solid fa-home"></i>
+                        <span>Startseite</span>
+                    </a>
+                    <a href="#tests" class="nav-link">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                        <span>Tests</span>
+                    </a>
+                    <a href="#exam" class="nav-link">
+                        <i class="fa-solid fa-file-pen"></i>
+                        <span>C1 Prüfung</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tests Hero -->
+    <section class="tests-hero">
+        <div class="container">
+            <div class="tests-hero-content">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-certificate"></i>
+                    <span>Prüfungsvorbereitung</span>
+                </div>
+                <h1>Tests & Prüfungssimulation</h1>
+                <p>Bereite dich optimal auf die C1-Prüfung vor mit realistischen Tests und detailliertem Feedback</p>
+                
+                <div class="test-categories">
+                    <div class="test-category-card">
+                        <i class="fa-solid fa-book-open"></i>
+                        <h3>Leseverstehen</h3>
+                        <p>8 Tests</p>
+                    </div>
+                    <div class="test-category-card">
+                        <i class="fa-solid fa-headphones"></i>
+                        <h3>Hörverstehen</h3>
+                        <p>6 Tests</p>
+                    </div>
+                    <div class="test-category-card">
+                        <i class="fa-solid fa-pen"></i>
+                        <h3>Schreiben</h3>
+                        <p>4 Tests</p>
+                    </div>
+                    <div class="test-category-card">
+                        <i class="fa-solid fa-comments"></i>
+                        <h3>Sprechen</h3>
+                        <p>5 Tests</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Tests Section -->
+    <section id="tests" class="section">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-clipboard-check"></i> Schnelle Tests</span>
+                <h2 class="section-title">Teste dein Wissen</h2>
+                <p class="section-description">Kurze Tests für zwischendurch - Dauer: 5-10 Minuten</p>
+            </div>
+
+            <div class="tests-grid">
+                <!-- Test 1: Artikel -->
+                <div class="test-card">
+                    <div class="test-header">
+                        <div class="test-icon" style="background: linear-gradient(135deg, #6ba7c6 0%, #5a96b5 100%);">
+                            <i class="fa-solid fa-a"></i>
+                        </div>
+                        <div class="test-info">
+                            <h3>Artikel-Test</h3>
+                            <div class="test-meta">
+                                <span><i class="fa-regular fa-clock"></i> 5 Min</span>
+                                <span><i class="fa-solid fa-list"></i> 20 Fragen</span>
+                                <span class="test-level level-a1">A1-A2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="test-description">Teste dein Wissen über der, die, das</p>
+                    <div class="test-stats">
+                        <div class="test-stat">
+                            <strong id="artikelTestBest">0%</strong>
+                            <span>Bestes Ergebnis</span>
+                        </div>
+                        <div class="test-stat">
+                            <strong id="artikelTestCount">0</strong>
+                            <span>Versuche</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-full" onclick="startTest('artikel')">
+                        <i class="fa-solid fa-play"></i>
+                        Test starten
+                    </button>
+                </div>
+
+                <!-- Test 2: Verb-Konjugation -->
+                <div class="test-card">
+                    <div class="test-header">
+                        <div class="test-icon" style="background: linear-gradient(135deg, #f7b267 0%, #e69a4f 100%);">
+                            <i class="fa-solid fa-v"></i>
+                        </div>
+                        <div class="test-info">
+                            <h3>Verb-Konjugation</h3>
+                            <div class="test-meta">
+                                <span><i class="fa-regular fa-clock"></i> 8 Min</span>
+                                <span><i class="fa-solid fa-list"></i> 15 Fragen</span>
+                                <span class="test-level level-a2">A2-B1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="test-description">Konjugiere Verben in verschiedenen Zeitformen</p>
+                    <div class="test-stats">
+                        <div class="test-stat">
+                            <strong id="verbTestBest">0%</strong>
+                            <span>Bestes Ergebnis</span>
+                        </div>
+                        <div class="test-stat">
+                            <strong id="verbTestCount">0</strong>
+                            <span>Versuche</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-full" onclick="startTest('verb')">
+                        <i class="fa-solid fa-play"></i>
+                        Test starten
+                    </button>
+                </div>
+
+                <!-- Test 3: Vokabel-Test -->
+                <div class="test-card">
+                    <div class="test-header">
+                        <div class="test-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <div class="test-info">
+                            <h3>Vokabel-Test A1</h3>
+                            <div class="test-meta">
+                                <span><i class="fa-regular fa-clock"></i> 10 Min</span>
+                                <span><i class="fa-solid fa-list"></i> 30 Fragen</span>
+                                <span class="test-level level-a1">A1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="test-description">Übersetze die wichtigsten A1-Vokabeln</p>
+                    <div class="test-stats">
+                        <div class="test-stat">
+                            <strong id="vocabTestBest">0%</strong>
+                            <span>Bestes Ergebnis</span>
+                        </div>
+                        <div class="test-stat">
+                            <strong id="vocabTestCount">0</strong>
+                            <span>Versuche</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-full" onclick="startTest('vocab')">
+                        <i class="fa-solid fa-play"></i>
+                        Test starten
+                    </button>
+                </div>
+
+                <!-- Test 4: Grammatik Mix -->
+                <div class="test-card">
+                    <div class="test-header">
+                        <div class="test-icon" style="background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);">
+                            <i class="fa-solid fa-language"></i>
+                        </div>
+                        <div class="test-info">
+                            <h3>Grammatik Mix B1</h3>
+                            <div class="test-meta">
+                                <span><i class="fa-regular fa-clock"></i> 12 Min</span>
+                                <span><i class="fa-solid fa-list"></i> 25 Fragen</span>
+                                <span class="test-level level-b1">B1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="test-description">Artikel, Präpositionen, Fälle und mehr</p>
+                    <div class="test-stats">
+                        <div class="test-stat">
+                            <strong id="grammarTestBest">0%</strong>
+                            <span>Bestes Ergebnis</span>
+                        </div>
+                        <div class="test-stat">
+                            <strong id="grammarTestCount">0</strong>
+                            <span>Versuche</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-full" onclick="startTest('grammar')">
+                        <i class="fa-solid fa-play"></i>
+                        Test starten
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- C1 Exam Simulation -->
+    <section id="exam" class="exam-section">
+        <div class="container">
+            <div class="exam-intro">
+                <div class="exam-badge">
+                    <i class="fa-solid fa-award"></i>
+                    <span>OFFIZIELLE SIMULATION</span>
+                </div>
+                <h2>Goethe-Zertifikat C1 - Prüfungssimulation</h2>
+                <p>Realistische Prüfungssimulation nach offiziellem Goethe-Institut Format</p>
+            </div>
+
+            <div class="exam-warning">
+                <div class="warning-icon">
+                    <i class="fa-solid fa-exclamation-triangle"></i>
+                </div>
+                <div class="warning-content">
+                    <h4>Wichtige Hinweise</h4>
+                    <ul>
+                        <li>Die Prüfung dauert <strong>ca. 3 Stunden 40 Minuten</strong></li>
+                        <li>Plane genug Zeit ein und störe dich nicht unterbrechen</li>
+                        <li>Du brauchst Kopfhörer für das Hörverstehen</li>
+                        <li>Für den mündlichen Teil brauchst du ein Mikrofon</li>
+                        <li>Die Prüfung kann nicht pausiert werden (realistische Bedingungen)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exam-structure">
+                <h3><i class="fa-solid fa-list-check"></i> Prüfungsaufbau</h3>
+                <div class="exam-parts-grid">
+                    <!-- Teil 1: Lesen -->
+                    <div class="exam-part-card">
+                        <div class="exam-part-header">
+                            <div class="exam-part-number">Teil 1</div>
+                            <h4>Leseverstehen</h4>
+                        </div>
+                        <div class="exam-part-details">
+                            <div class="detail-item">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>70 Minuten</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-list"></i>
+                                <span>4 Aufgaben</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-star"></i>
+                                <span>25 Punkte</span>
+                            </div>
+                        </div>
+                        <ul class="exam-tasks">
+                            <li>Aufgabe 1: Lückentext (10 Punkte)</li>
+                            <li>Aufgabe 2: Textrekonstruktion (5 Punkte)</li>
+                            <li>Aufgabe 3: Multiple Choice (5 Punkte)</li>
+                            <li>Aufgabe 4: Zuordnung (5 Punkte)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Teil 2: Hören -->
+                    <div class="exam-part-card">
+                        <div class="exam-part-header">
+                            <div class="exam-part-number">Teil 2</div>
+                            <h4>Hörverstehen</h4>
+                        </div>
+                        <div class="exam-part-details">
+                            <div class="detail-item">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>40 Minuten</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-list"></i>
+                                <span>3 Aufgaben</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-star"></i>
+                                <span>25 Punkte</span>
+                            </div>
+                        </div>
+                        <ul class="exam-tasks">
+                            <li>Aufgabe 1: Detailverstehen (10 Punkte)</li>
+                            <li>Aufgabe 2: Globalverstehen (10 Punkte)</li>
+                            <li>Aufgabe 3: Selektives Verstehen (5 Punkte)</li>
+                        </ul>
+                        <div class="exam-note">
+                            <i class="fa-solid fa-info-circle"></i>
+                            <span>Audio wird 2x abgespielt</span>
+                        </div>
+                    </div>
+
+                    <!-- Teil 3: Schreiben -->
+                    <div class="exam-part-card">
+                        <div class="exam-part-header">
+                            <div class="exam-part-number">Teil 3</div>
+                            <h4>Schriftlicher Ausdruck</h4>
+                        </div>
+                        <div class="exam-part-details">
+                            <div class="detail-item">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>80 Minuten</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-list"></i>
+                                <span>2 Aufgaben</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-star"></i>
+                                <span>25 Punkte</span>
+                            </div>
+                        </div>
+                        <ul class="exam-tasks">
+                            <li>Aufgabe 1: Brief/E-Mail (15 Punkte)</li>
+                            <li>Aufgabe 2: Argumentation (10 Punkte)</li>
+                        </ul>
+                        <div class="exam-note">
+                            <i class="fa-solid fa-info-circle"></i>
+                            <span>Min. 200 Wörter pro Aufgabe</span>
+                        </div>
+                    </div>
+
+                    <!-- Teil 4: Sprechen -->
+                    <div class="exam-part-card">
+                        <div class="exam-part-header">
+                            <div class="exam-part-number">Teil 4</div>
+                            <h4>Mündlicher Ausdruck</h4>
+                        </div>
+                        <div class="exam-part-details">
+                            <div class="detail-item">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>15 Minuten</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-list"></i>
+                                <span>2 Aufgaben</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-star"></i>
+                                <span>25 Punkte</span>
+                            </div>
+                        </div>
+                        <ul class="exam-tasks">
+                            <li>Aufgabe 1: Vortrag (15 Punkte)</li>
+                            <li>Aufgabe 2: Diskussion (10 Punkte)</li>
+                        </ul>
+                        <div class="exam-note">
+                            <i class="fa-solid fa-info-circle"></i>
+                            <span>Vorbereitungszeit: 15 Min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Passing Requirements -->
+            <div class="passing-requirements">
+                <h3><i class="fa-solid fa-graduation-cap"></i> Bestehens-Kriterien</h3>
+                <div class="requirements-grid">
+                    <div class="requirement-card">
+                        <div class="requirement-icon">
+                            <i class="fa-solid fa-check-circle"></i>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Schriftliche Prüfung</h4>
+                            <p>Mindestens <strong>60% der Punkte</strong></p>
+                            <p class="requirement-detail">Lesen + Hören + Schreiben = 75 Punkte</p>
+                            <p class="requirement-detail">Erforderlich: <strong>45 Punkte</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="requirement-card">
+                        <div class="requirement-icon">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Mündliche Prüfung</h4>
+                            <p>Mindestens <strong>60% der Punkte</strong></p>
+                            <p class="requirement-detail">Sprechen = 25 Punkte</p>
+                            <p class="requirement-detail">Erforderlich: <strong>15 Punkte</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="requirement-card highlight-card">
+                        <div class="requirement-icon">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Gesamtergebnis</h4>
+                            <p><strong>60 von 100 Punkten</strong></p>
+                            <p class="requirement-detail">Beide Teile müssen bestanden werden</p>
+                            <p class="requirement-detail">Zertifikat: <strong>Ab 60%</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Start Exam Button -->
+            <div class="start-exam-section">
+                <div class="exam-card-large">
+                    <div class="exam-card-content">
+                        <i class="fa-solid fa-certificate"></i>
+                        <h3>Vollständige C1-Prüfung</h3>
+                        <p>Komplette Prüfungssimulation mit allen 4 Teilen</p>
+                        <div class="exam-card-stats">
+                            <div class="exam-card-stat">
+                                <i class="fa-regular fa-clock"></i>
+                                <strong>3h 40min</strong>
+                                <span>Gesamtdauer</span>
+                            </div>
+                            <div class="exam-card-stat">
+                                <i class="fa-solid fa-star"></i>
+                                <strong>100 Punkte</strong>
+                                <span>Maximum</span>
+                            </div>
+                            <div class="exam-card-stat">
+                                <i class="fa-solid fa-check"></i>
+                                <strong>60 Punkte</strong>
+                                <span>Zum Bestehen</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-exam btn-large" onclick="startFullExam()">
+                            <i class="fa-solid fa-play-circle"></i>
+                            Prüfung starten
+                        </button>
+                        <p class="exam-warning-text">
+                            <i class="fa-solid fa-exclamation-circle"></i>
+                            Stelle sicher, dass du genug Zeit hast und nicht gestört wirst
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Results History -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label"><i class="fa-solid fa-chart-line"></i> Deine Ergebnisse</span>
+                <h2 class="section-title">Testergebnisse</h2>
+                <p class="section-description">Verfolge deine Entwicklung über Zeit</p>
+            </div>
+
+            <div id="testResultsContainer" class="test-results-container">
+                <div class="empty-state">
+                    <i class="fa-regular fa-clipboard"></i>
+                    <p>Noch keine Tests absolviert</p>
+                    <small>Starte deinen ersten Test und verfolge deine Fortschritte!</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-title">Deutsch Meistern</span>
+                            <span class="logo-subtitle">A1 bis C1</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">Ihre professionelle Plattform für strukturiertes Deutschlernen.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fa-solid fa-home"></i> Startseite</a></li>
+                        <li><a href="index.html#vokabeln"><i class="fa-solid fa-book"></i> Vokabeln</a></li>
+                        <li><a href="index.html#grammatik"><i class="fa-solid fa-language"></i> Grammatik</a></li>
+                        <li><a href="tests.html"><i class="fa-solid fa-clipboard-check"></i> Tests</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Deutsch Meistern. Erstellt mit ❤️ von Nico für Mariami</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Test Modal Container -->
+    <div id="testModal" class="test-modal">
+        <div class="test-modal-content">
+            <div class="test-modal-header">
+                <h3 id="testModalTitle">Test</h3>
+                <div class="test-modal-timer">
+                    <i class="fa-regular fa-clock"></i>
+                    <span id="testTimer">00:00</span>
+                </div>
+                <button class="test-modal-close" onclick="closeTestModal()">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="test-modal-body" id="testModalBody">
+                <!-- Test content will be inserted here -->
+            </div>
+            <div class="test-modal-footer">
+                <button class="btn btn-outline" onclick="previousQuestion()" id="prevBtn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    Zurück
+                </button>
+                <span class="question-counter">
+                    Frage <span id="currentQuestionNum">1</span> von <span id="totalQuestionsNum">20</span>
+                </span>
+                <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn">
+                    Weiter
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exam Modal -->
+    <div id="examModal" class="exam-modal">
+        <div class="exam-modal-content">
+            <!-- Exam interface will be inserted here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
+    <script src="test-engine.js"></script>
+</body>
+</html>
+

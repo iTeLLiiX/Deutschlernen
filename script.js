@@ -1146,6 +1146,19 @@ document.addEventListener('DOMContentLoaded', function() {
     initFlashcards();
     initCustomAudioUpload();
     
+    // Initialize NEW features
+    initFavorites();
+    updateStats();
+    
+    // Load achievements
+    achievements.forEach(id => {
+        const element = document.querySelector(`[data-achievement="${id}"]`);
+        if (element) {
+            element.classList.remove('locked');
+            element.classList.add('unlocked');
+        }
+    });
+    
     // Event listeners
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => changeLanguage(btn.dataset.lang));
@@ -1154,7 +1167,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('themeToggle').addEventListener('click', toggleDarkMode);
     document.getElementById('mobileMenuToggle').addEventListener('click', toggleMobileMenu);
     
-    // Add CSS for animations
+    // Add CSS for animations and new features
     const style = document.createElement('style');
     style.textContent = `
         @keyframes floatUp {
@@ -1200,12 +1213,24 @@ document.addEventListener('DOMContentLoaded', function() {
             background-color: #f8d7da !important;
             border-color: #dc3545 !important;
         }
+        
+        .search-highlight {
+            animation: highlightPulse 1s ease;
+        }
+        
+        @keyframes highlightPulse {
+            0%, 100% { background-color: transparent; }
+            50% { background-color: rgba(247, 178, 103, 0.2); }
+        }
     `;
     document.head.appendChild(style);
     
     console.log('✅ All systems ready!');
     console.log(`📊 Total Points: ${totalPoints}`);
     console.log(`🌍 Language: ${currentLanguage}`);
+    console.log(`❤️ Favorites: ${favorites.length}`);
+    console.log(`🏆 Achievements: ${achievements.length}`);
+    console.log(`🔥 Streak: ${stats.streakDays} days`);
 });
 
 // ============================================
@@ -1258,6 +1283,522 @@ function isElementInViewport(el) {
 }
 
 // ============================================
+// FEATURE 1: FAVORITES SYSTEM
+// ============================================
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+function toggleFavorite(word) {
+    const index = favorites.indexOf(word);
+    const card = document.querySelector(`[data-word="${word}"]`);
+    const btn = card?.querySelector('.favorite-btn i');
+    
+    if (index === -1) {
+        // Add to favorites
+        favorites.push(word);
+        if (btn) {
+            btn.classList.remove('fa-regular');
+            btn.classList.add('fa-solid');
+        }
+        showNotification('❤️ Zu Favoriten hinzugefügt!', 'success');
+        updateTotalPoints(5);
+    } else {
+        // Remove from favorites
+        favorites.splice(index, 1);
+        if (btn) {
+            btn.classList.remove('fa-solid');
+            btn.classList.add('fa-regular');
+        }
+        showNotification('💔 Aus Favoriten entfernt', 'info');
+    }
+    
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    updateFavoritesCount();
+    updateFavoritesDisplay();
+}
+
+function updateFavoritesCount() {
+    document.getElementById('favoritesCount').textContent = favorites.length;
+}
+
+function updateFavoritesDisplay() {
+    const favoritesList = document.getElementById('favoritesList');
+    
+    if (favorites.length === 0) {
+        favoritesList.innerHTML = `
+            <div class="empty-state">
+                <i class="fa-regular fa-heart"></i>
+                <p>Noch keine Favoriten vorhanden</p>
+                <small>Klicke auf das Herz bei Vokabeln, um sie hier zu speichern</small>
+            </div>
+        `;
+    } else {
+        favoritesList.innerHTML = favorites.map(word => `
+            <div class="vocab-card favorite-card" data-word="${word}">
+                <div class="vocab-word">
+                    <span class="word-german">${word}</span>
+                    <div class="vocab-actions">
+                        <button class="audio-btn" onclick="speakWord('${word}')">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                        <button class="favorite-btn" onclick="toggleFavorite('${word}')">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+}
+
+function clearAllFavorites() {
+    if (confirm('Möchtest du wirklich alle Favoriten löschen?')) {
+        favorites = [];
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        updateFavoritesCount();
+        updateFavoritesDisplay();
+        
+        // Update all favorite buttons
+        document.querySelectorAll('.favorite-btn i').forEach(icon => {
+            icon.classList.remove('fa-solid');
+            icon.classList.add('fa-regular');
+        });
+        
+        showNotification('🗑️ Alle Favoriten gelöscht', 'info');
+    }
+}
+
+function filterVocab(type) {
+    const allLessons = document.querySelectorAll('.lesson-card');
+    const favoritesSection = document.getElementById('favoritesSection');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    
+    // Update active button
+    filterBtns.forEach(btn => btn.classList.remove('active'));
+    document.getElementById(`filter${type.charAt(0).toUpperCase() + type.slice(1)}`).classList.add('active');
+    
+    if (type === 'favorites') {
+        allLessons.forEach(lesson => lesson.style.display = 'none');
+        favoritesSection.style.display = 'block';
+        updateFavoritesDisplay();
+    } else {
+        allLessons.forEach(lesson => lesson.style.display = 'block');
+        favoritesSection.style.display = 'none';
+    }
+}
+
+// ============================================
+// FEATURE 2: SEARCH FUNCTION
+// ============================================
+function searchVocab() {
+    const searchTerm = document.getElementById('vocabSearch').value.toLowerCase();
+    const clearBtn = document.getElementById('searchClear');
+    const vocabCards = document.querySelectorAll('.vocab-card');
+    const vocabRows = document.querySelectorAll('.vocab-row');
+    
+    // Show/hide clear button
+    clearBtn.style.display = searchTerm ? 'block' : 'none';
+    
+    let foundCount = 0;
+    
+    // Search in vocab cards
+    vocabCards.forEach(card => {
+        const word = card.querySelector('.word-german')?.textContent.toLowerCase() || '';
+        const translation = card.querySelector('.translation-en')?.textContent.toLowerCase() || '';
+        const georgian = card.querySelector('.translation-ka')?.textContent.toLowerCase() || '';
+        
+        if (word.includes(searchTerm) || translation.includes(searchTerm) || georgian.includes(searchTerm)) {
+            card.style.display = '';
+            card.classList.add('search-highlight');
+            foundCount++;
+        } else {
+            card.style.display = 'none';
+            card.classList.remove('search-highlight');
+        }
+    });
+    
+    // Search in vocab table rows
+    vocabRows.forEach(row => {
+        const word = row.querySelector('.word-german')?.textContent.toLowerCase() || '';
+        const cells = Array.from(row.querySelectorAll('td')).map(td => td.textContent.toLowerCase()).join(' ');
+        
+        if (word.includes(searchTerm) || cells.includes(searchTerm)) {
+            row.style.display = '';
+            row.classList.add('search-highlight');
+            foundCount++;
+        } else {
+            row.style.display = 'none';
+            row.classList.remove('search-highlight');
+        }
+    });
+    
+    // Show notification if no results
+    if (searchTerm && foundCount === 0) {
+        showNotification('🔍 Keine Ergebnisse gefunden', 'info');
+    }
+}
+
+function clearSearch() {
+    document.getElementById('vocabSearch').value = '';
+    searchVocab();
+}
+
+// ============================================
+// FEATURE 3: NOTES SYSTEM
+// ============================================
+let notes = JSON.parse(localStorage.getItem('vocabNotes')) || {};
+
+function addNoteToVocab(word) {
+    const note = prompt('Füge eine Notiz hinzu:');
+    if (note) {
+        notes[word] = note;
+        localStorage.setItem('vocabNotes', JSON.stringify(notes));
+        showNotification('📝 Notiz gespeichert!', 'success');
+        displayNote(word);
+    }
+}
+
+function displayNote(word) {
+    const card = document.querySelector(`[data-word="${word}"]`);
+    if (card && notes[word]) {
+        let noteDisplay = card.querySelector('.note-display');
+        if (!noteDisplay) {
+            noteDisplay = document.createElement('div');
+            noteDisplay.className = 'note-display';
+            card.appendChild(noteDisplay);
+        }
+        noteDisplay.innerHTML = `
+            <div class="note-content">
+                <i class="fa-solid fa-note-sticky"></i>
+                <span>${notes[word]}</span>
+                <button onclick="deleteNote('${word}')"><i class="fa-solid fa-times"></i></button>
+            </div>
+        `;
+    }
+}
+
+function deleteNote(word) {
+    delete notes[word];
+    localStorage.setItem('vocabNotes', JSON.stringify(notes));
+    const card = document.querySelector(`[data-word="${word}"]`);
+    const noteDisplay = card?.querySelector('.note-display');
+    if (noteDisplay) {
+        noteDisplay.remove();
+    }
+    showNotification('🗑️ Notiz gelöscht', 'info');
+}
+
+// ============================================
+// FEATURE 4: PWA INSTALLATION
+// ============================================
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('💾 PWA: Install prompt available');
+    e.preventDefault();
+    deferredPrompt = e;
+    showInstallBanner();
+});
+
+function showInstallBanner() {
+    // Create install banner
+    const banner = document.createElement('div');
+    banner.className = 'install-banner';
+    banner.innerHTML = `
+        <div class="install-content">
+            <i class="fa-solid fa-download"></i>
+            <div class="install-text">
+                <strong>Als App installieren</strong>
+                <small>Funktioniert offline und schneller!</small>
+            </div>
+        </div>
+        <div class="install-actions">
+            <button class="btn btn-primary btn-sm" onclick="installPWA()">
+                <i class="fa-solid fa-download"></i>
+                Installieren
+            </button>
+            <button class="btn btn-outline btn-sm" onclick="dismissInstallBanner()">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+    `;
+    document.body.appendChild(banner);
+    
+    setTimeout(() => banner.classList.add('visible'), 100);
+}
+
+async function installPWA() {
+    if (!deferredPrompt) {
+        showNotification('❌ Installation nicht verfügbar', 'error');
+        return;
+    }
+    
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    
+    if (outcome === 'accepted') {
+        showNotification('✅ App wird installiert...', 'success');
+    }
+    
+    deferredPrompt = null;
+    dismissInstallBanner();
+}
+
+function dismissInstallBanner() {
+    const banner = document.querySelector('.install-banner');
+    if (banner) {
+        banner.classList.remove('visible');
+        setTimeout(() => banner.remove(), 300);
+    }
+}
+
+// ============================================
+// FEATURE 5: STATISTICS & ACHIEVEMENTS
+// ============================================
+let stats = JSON.parse(localStorage.getItem('stats')) || {
+    streakDays: 0,
+    lastVisit: null,
+    totalExercises: 0,
+    vocabLearned: 0,
+    totalMinutes: 0,
+    weeklyData: [0, 0, 0, 0, 0, 0, 0],
+    startDate: new Date().toISOString()
+};
+
+let achievements = JSON.parse(localStorage.getItem('achievements')) || [];
+
+function updateStats() {
+    // Update streak
+    updateStreak();
+    
+    // Update displays
+    document.getElementById('streakDays').textContent = stats.streakDays;
+    document.getElementById('totalExercises').textContent = stats.totalExercises;
+    document.getElementById('vocabLearned').textContent = stats.vocabLearned;
+    document.getElementById('totalMinutes').textContent = stats.totalMinutes;
+    
+    // Update weekly chart
+    updateWeeklyChart();
+    
+    // Check achievements
+    checkAchievements();
+}
+
+function updateStreak() {
+    const today = new Date().toDateString();
+    const lastVisit = stats.lastVisit ? new Date(stats.lastVisit).toDateString() : null;
+    
+    if (lastVisit !== today) {
+        if (lastVisit === new Date(Date.now() - 86400000).toDateString()) {
+            // Consecutive day
+            stats.streakDays++;
+        } else if (!lastVisit) {
+            // First visit
+            stats.streakDays = 1;
+        } else {
+            // Streak broken
+            stats.streakDays = 1;
+        }
+        stats.lastVisit = new Date().toISOString();
+        saveStats();
+    }
+}
+
+function incrementExercises() {
+    stats.totalExercises++;
+    updateWeeklyData();
+    saveStats();
+    updateStats();
+}
+
+function incrementVocabLearned() {
+    stats.vocabLearned++;
+    saveStats();
+    updateStats();
+}
+
+function addLearningTime(minutes) {
+    stats.totalMinutes += minutes;
+    saveStats();
+    updateStats();
+}
+
+function updateWeeklyData() {
+    const today = new Date().getDay();
+    stats.weeklyData[today]++;
+    saveStats();
+}
+
+function saveStats() {
+    localStorage.setItem('stats', JSON.stringify(stats));
+}
+
+function updateWeeklyChart() {
+    const ctx = document.getElementById('progressChart');
+    if (!ctx) return;
+    
+    // Destroy existing chart if exists
+    if (window.weeklyChart) {
+        window.weeklyChart.destroy();
+    }
+    
+    const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+    
+    window.weeklyChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: days,
+            datasets: [{
+                label: 'Übungen diese Woche',
+                data: stats.weeklyData,
+                backgroundColor: 'rgba(247, 178, 103, 0.5)',
+                borderColor: '#f7b267',
+                borderWidth: 2,
+                borderRadius: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
+}
+
+function checkAchievements() {
+    const achievementChecks = [
+        { id: 'first-word', condition: stats.vocabLearned >= 1, title: '🌟 Erstes Wort gelernt!' },
+        { id: '10-words', condition: stats.vocabLearned >= 10, title: '📚 10 Vokabeln gemeistert!' },
+        { id: '50-words', condition: stats.vocabLearned >= 50, title: '🎓 50 Vokabeln! Wow!' },
+        { id: '7-day-streak', condition: stats.streakDays >= 7, title: '🔥 7 Tage am Stück! Toll!' },
+        { id: 'perfect-quiz', condition: articleScore === 10 || mcScore === 5, title: '🏆 Perfektes Quiz!' },
+        { id: '100-points', condition: totalPoints >= 100, title: '👑 100 Punkte erreicht!' }
+    ];
+    
+    achievementChecks.forEach(check => {
+        if (check.condition && !achievements.includes(check.id)) {
+            unlockAchievement(check.id, check.title);
+        }
+    });
+}
+
+function unlockAchievement(id, title) {
+    achievements.push(id);
+    localStorage.setItem('achievements', JSON.stringify(achievements));
+    
+    const element = document.querySelector(`[data-achievement="${id}"]`);
+    if (element) {
+        element.classList.remove('locked');
+        element.classList.add('unlocked');
+    }
+    
+    // Show celebration
+    showAchievementPopup(title);
+    updateTotalPoints(25);
+}
+
+function showAchievementPopup(title) {
+    const popup = document.createElement('div');
+    popup.className = 'achievement-popup';
+    popup.innerHTML = `
+        <div class="achievement-popup-content">
+            <i class="fa-solid fa-trophy"></i>
+            <h3>Neue Errungenschaft!</h3>
+            <p>${title}</p>
+        </div>
+    `;
+    document.body.appendChild(popup);
+    
+    setTimeout(() => popup.classList.add('visible'), 100);
+    setTimeout(() => {
+        popup.classList.remove('visible');
+        setTimeout(() => popup.remove(), 300);
+    }, 3000);
+}
+
+// ============================================
+// NOTIFICATION SYSTEM
+// ============================================
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    
+    const icons = {
+        success: 'fa-check-circle',
+        error: 'fa-times-circle',
+        info: 'fa-info-circle',
+        warning: 'fa-exclamation-circle'
+    };
+    
+    notification.innerHTML = `
+        <i class="fa-solid ${icons[type]}"></i>
+        <span>${message}</span>
+    `;
+    
+    document.body.appendChild(notification);
+    setTimeout(() => notification.classList.add('visible'), 100);
+    
+    setTimeout(() => {
+        notification.classList.remove('visible');
+        setTimeout(() => notification.remove(), 300);
+    }, 2500);
+}
+
+// ============================================
+// UPDATE EXISTING FUNCTIONS TO TRACK STATS
+// ============================================
+const originalCheckArticle = checkArticle;
+function checkArticle(selectedArticle) {
+    originalCheckArticle(selectedArticle);
+    incrementExercises();
+    if (currentArticleQuestion === 0) {
+        addLearningTime(2);
+    }
+}
+
+const originalCheckMCAnswer = checkMCAnswer;
+function checkMCAnswer(selectedIndex) {
+    originalCheckMCAnswer(selectedIndex);
+    incrementExercises();
+}
+
+const originalMarkAsKnown = markAsKnown;
+function markAsKnown() {
+    originalMarkAsKnown();
+    incrementVocabLearned();
+}
+
+// ============================================
+// LOAD FAVORITES ON START
+// ============================================
+function initFavorites() {
+    updateFavoritesCount();
+    
+    // Mark favorite buttons
+    document.querySelectorAll('.vocab-card[data-word]').forEach(card => {
+        const word = card.dataset.word;
+        if (favorites.includes(word)) {
+            const btn = card.querySelector('.favorite-btn i');
+            if (btn) {
+                btn.classList.remove('fa-regular');
+                btn.classList.add('fa-solid');
+            }
+        }
+    });
+}
+
+// ============================================
 // EXPORT FUNCTIONS FOR GLOBAL ACCESS
 // ============================================
 window.speakWord = speakWord;
@@ -1278,3 +1819,12 @@ window.nextPracticeWord = nextPracticeWord;
 window.changeLanguage = changeLanguage;
 window.toggleDarkMode = toggleDarkMode;
 window.toggleMobileMenu = toggleMobileMenu;
+window.toggleFavorite = toggleFavorite;
+window.clearAllFavorites = clearAllFavorites;
+window.filterVocab = filterVocab;
+window.searchVocab = searchVocab;
+window.clearSearch = clearSearch;
+window.addNoteToVocab = addNoteToVocab;
+window.deleteNote = deleteNote;
+window.installPWA = installPWA;
+window.dismissInstallBanner = dismissInstallBanner;
